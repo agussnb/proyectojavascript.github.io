@@ -12,7 +12,5 @@ let valueConvertido = valueIngresado / criptoBtc
 //Y aca deberia teoricamente settear los valores xd
 conversorCripto.setAttribute("value" , valueConvertido);
 
-
-
     // console.log('El valor de calculodoDolarCripto es ' + conversorCripto)
 }
