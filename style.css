@@ -20,3 +20,11 @@ nav{
 .table{
     background-color: white;
 }
+.divBotonDivisas{
+    max-width: fit-content;
+    max-height: fit-content;
+    position: absolute;
+}
+h4{
+    color: white;
+}
