@@ -11,7 +11,6 @@ let valueConvertido = valueIngresado / criptoBtc
 
 //Y aca deberia teoricamente settear los valores xd
 conversorCripto.setAttribute("value" , valueConvertido);
-
    
 }
 let criptoEther = 14.75;
@@ -57,6 +56,14 @@ for(let i = 0; i<=5; i=i+1){
         dolarConvertidoDos.setAttribute("value", valorConvertidoDos);
         dolarConvertidoTres.setAttribute("value", valorConvertidoTres);
         dolarConvertidoCuatro.setAttribute("value", valorConvertidoCuatro);
-        
     }
 } 
+function MonedaDivisa(n, o, v,){
+    this.nombre = n;
+    this.origen = o;
+    this.valor = v;
+}
+const dolar = new MonedaDivisa("Dolar", "Estados Unidos", "291");
+const euro = new MonedaDivisa("Euro", "Union Europea", "313");
+const yen = new MonedaDivisa("Yen", "Japon","1,02");
+const realBr = new MonedaDivisa("Real Brasileño","Brasil","29,42");
