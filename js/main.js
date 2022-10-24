@@ -149,7 +149,6 @@ function SeleccionCriptomoneda(criptomonedaRecibida){
 
 switch(this.nombre){
     case "Bitcoin":
-        console.log("1")
     alert("Usted eligio Bitcoin");
     ocultarTodasCriptos();
     setTimeout(()=>{let elementoBtc = document.querySelectorAll(".trBitcoin");
@@ -164,7 +163,7 @@ switch(this.nombre){
      setTimeout(()=>{ let elementoEth = document.querySelectorAll(".trEthereum");
      elementoEth[0].removeAttribute("hidden");
      elementoEth[1].removeAttribute("hidden");
-     console.log("2")},250)
+     },250)
    
     break;
     case "Usdc":
@@ -173,7 +172,7 @@ switch(this.nombre){
      setTimeout(()=>{let elementoUsdc = document.querySelectorAll(".trUsdc");
      elementoUsdc[0].removeAttribute("hidden");
      elementoUsdc[1].removeAttribute("hidden");
-     console.log("3")},250)
+     },250)
     
     break;
     case "Litecoin":
@@ -182,7 +181,7 @@ switch(this.nombre){
      setTimeout(()=>{let elementoLtc = document.querySelectorAll(".trLitecoin");
      elementoLtc[0].removeAttribute("hidden");
      elementoLtc[1].removeAttribute("hidden");
-     console.log("4")},250)
+    },250)
     
     break;
     case "Dai":
@@ -191,7 +190,7 @@ switch(this.nombre){
      setTimeout(()=>{let elementoDai = document.querySelectorAll(".trDai");
      elementoDai[0].removeAttribute("hidden");
      elementoDai[1].removeAttribute("hidden");
-     console.log("5")},250)
+     },250)
     
     break;
     case "Uniswap":
@@ -200,7 +199,7 @@ switch(this.nombre){
      setTimeout(()=>{let elementoUni = document.querySelectorAll(".trUniswap");
      elementoUni[0].removeAttribute("hidden");
      elementoUni[1].removeAttribute("hidden");
-     console.log("6")},250)
+     },250)
     
     break;
     case "Axs":
@@ -209,7 +208,7 @@ switch(this.nombre){
      setTimeout(()=>{let elementoAxs = document.querySelectorAll(".trAxs");
      elementoAxs[0].removeAttribute("hidden");
      elementoAxs[1].removeAttribute("hidden");
-     console.log("7")},250)
+     },250)
     
     break;
     case "Xrp":
@@ -218,7 +217,7 @@ switch(this.nombre){
      setTimeout(()=>{let elementoXrp = document.querySelectorAll(".trXrp");
      elementoXrp[0].removeAttribute("hidden");
      elementoXrp[1].removeAttribute("hidden");
-     console.log("8")},250)
+    },250)
     
     break;
     // default: 
