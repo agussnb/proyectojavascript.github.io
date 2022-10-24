@@ -36,39 +36,140 @@
       </div>
     </nav>
   </header>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Dolar</th>
-        <th scope="col">Conversor</th>
-        <th scope="col">Bitcoin</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-       <td> <input id="dolarFilaUno" class="valor" type="number" data-cambio="1"/></td> 
-        <td><button onclick="conversorCriptoBtc()" type="button" class="btn btn-primary">Calcular</button></td>
-        <td><input id="criptoFilaUno" type="number"></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <th scope="col">Bitcoin</th>
-        <th scope="col">Conversor</th>
-        <th scope="col">Etherum</th>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td><input id="btcFilaDos" class="valor" type="number" data-cambio="1"/></td>
-        <td><button onclick="conversorCriptoEther()" type="button" class="btn btn-primary">Calcular</button></textarea></td>
-        <td><input id="etherFilaDos" type="number"></textarea></td>
-
-
-      </tr>
-    </tbody>
-  </table>
+  <div class="dropdown">
+    <button  class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  Seleccione Criptomoneda
+    </button>
+    <ul class="dropdown-menu">
+      <li><button onclick="SeleccionCriptomoneda('Bitcoin')" class="btnBitcoin dropdown-item">Bitcoin</button></li>
+      <li><button onclick="SeleccionCriptomoneda('Ethereum')" class="btnEthereum dropdown-item">Ethereum</button></li>
+      <li><button onclick="SeleccionCriptomoneda('Usdc')" class="btnUsdc dropdown-item">Usdc</button></li>
+      <li><button onclick="SeleccionCriptomoneda('Litecoin')" class="btnLitecoin dropdown-item">Litecoin</button></li>
+      <li><button onclick="SeleccionCriptomoneda('Dai')" class="btnDai dropdown-item">Dai</button></li>
+      <li><button onclick="SeleccionCriptomoneda('Uniswap')" class="btnUniswap dropdown-item">Uniswap</button></li>
+      <li><button onclick="SeleccionCriptomoneda('Axs')" class="btnAxs dropdown-item">Axs</button></li>
+      <li><button onclick="SeleccionCriptomoneda('Xrp')" class="btnXrp dropdown-item">Xrp</button></li>
+    </ul>
+  </div>
+    <div class="divCriptomonedas">
+      <table class="table">
+        <thead>
+          <tr hidden class="trBitcoin" id="trBitcoin">
+            <th scope="col">#</th>
+            <th scope="col">Bitcoin</th>
+            <th scope="col">Conversor</th>
+            <th scope="col">Dolar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr hidden class="trBitcoin" id="trBitcoin">
+            <th scope="row">1</th>
+           <td> <input id="criptoFilaUno" class="valor" type="number" data-cambio="1"/></td> 
+            <td><button onclick="conversorCriptoBtc()" type="button" class="btn btn-primary">Calcular</button></td>
+            <td><input id="dolarFilaUno" type="number"></td>
+          </tr>
+          <tr hidden class="trEthereum" id="trEthereum">
+            <th scope="col">#</th>
+            <th scope="col">Ethereum</th>
+            <th scope="col">Conversor</th>
+            <th scope="col">Dolar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr hidden class="trEthereum" id="trEthereum">
+            <th scope="row">1</th>
+           <td> <input id="CriptoEth" class="valor" type="number"></td> 
+            <td><button onclick="conversorCriptoEther()" type="button" class="btn btn-primary">Calcular</button></td>
+            <td><input id="dolarEth" type="number"></td>
+          </tr>
+          <tr hidden class="trUsdc" id="trUsdc">
+            <th scope="col">#</th>
+            <th scope="col">Usdc</th>
+            <th scope="col">Conversor</th>
+            <th scope="col">Dolar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr hidden class="trUsdc" id="trUsdc">
+            <th scope="row">1</th>
+           <td> <input id="criptoUsdc" class="valor" type="number" data-cambio="1"/></td> 
+            <td><button onclick="conversorCriptoUsdc()" type="button" class="btn btn-primary">Calcular</button></td>
+            <td><input id="dolarUsdc" type="number"></td>
+          </tr>
+          <tr hidden class="trLitecoin" id="trLitecoin">
+            <th scope="col">#</th>
+            <th scope="col">Litecoin</th>
+            <th scope="col">Conversor</th>
+            <th scope="col">Dolar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr hidden class="trLitecoin" id="trLitecoin">
+            <th scope="row">1</th>
+           <td> <input id="criptoLitecoin" class="valor" type="number" data-cambio="1"/></td> 
+            <td><button onclick="conversorCriptoLtc()" type="button" class="btn btn-primary">Calcular</button></td>
+            <td><input id="dolarLtc" type="number"></td>
+          </tr>
+          <tr hidden class="trDai" id="trDai">
+            <th scope="col">#</th>
+            <th scope="col">Dai</th>
+            <th scope="col">Conversor</th>
+            <th scope="col">Dolar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr hidden class="trDai" id="trDai">
+            <th scope="row">1</th>
+           <td> <input id="criptoDai" class="valor" type="number" data-cambio="1"/></td> 
+            <td><button onclick="conversorCriptoDai()" type="button" class="btn btn-primary">Calcular</button></td>
+            <td><input id="dolarDai" type="number"></td>
+          </tr>
+          <tr hidden class="trUniswap" id="trUniswap">
+            <th scope="col">#</th>
+            <th scope="col">Uniswap</th>
+            <th scope="col">Conversor</th>
+            <th scope="col">Dolar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr hidden class="trUniswap" id="trUniswap">
+            <th scope="row">1</th>
+           <td> <input id="criptoUniswap" class="valor" type="number" data-cambio="1"/></td> 
+            <td><button onclick="conversorCriptoUniswap()" type="button" class="btn btn-primary">Calcular</button></td>
+            <td><input id="dolarUniswap" type="number"></td>
+          </tr>
+          <tr hidden class="trAxs" id="trAxs">
+            <th scope="col">#</th>
+            <th scope="col">Axs</th>
+            <th scope="col">Conversor</th>
+            <th scope="col">Dolar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr hidden class="trAxs" id="trAxs">
+            <th scope="row">1</th>
+           <td> <input id="criptoAxs" class="valor" type="number" data-cambio="1"/></td> 
+            <td><button onclick="conversorCriptoAxs()" type="button" class="btn btn-primary">Calcular</button></td>
+            <td><input id="dolarAxs" type="number"></td>
+          </tr>
+          <tr hidden class="trXrp" id="trXrp">
+            <th scope="col">#</th>
+            <th scope="col">Xrp</th>
+            <th scope="col">Conversor</th>
+            <th scope="col">Dolar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr hidden class="trXrp" id="trXrp">
+            <th scope="row">1</th>
+           <td> <input id="criptoXrp" class="valor" type="number" data-cambio="1"/></td> 
+            <td><button onclick="conversorCriptoXrp()" type="button" class="btn btn-primary">Calcular</button></td>
+            <td><input id="dolarXrp" type="number"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
 
   <script src="/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
