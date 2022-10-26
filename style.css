@@ -23,7 +23,6 @@ nav{
 .divBotonDivisas{
     max-width: fit-content;
     max-height: fit-content;
-    position: absolute;
 }
 h4{
     color: white;
@@ -31,10 +30,18 @@ h4{
 .card-body{
     background-color: white;
 }
+
+.card-title{
+    text-align: center;
+}
 .divCriptomonedas{
     max-width: 100%;
     max-height: 100%;
     background-color: white;
+}
+.btn-primary{
+    position: relative;
+    left: 25px;
 }
 .btn{
     background-color: rgb(38, 189, 231);
@@ -50,28 +57,5 @@ footer{
     height: 40px;
     color: white;
 }
-/* #trBitcoin{
-    visibility: hidden;
-}
-#trEthereum{
-    visibility: hidden;
-}
-#trUsdc{
-    visibility: hidden;
-}
-#trLitecoin{
-    visibility: hidden;
-}
-#trDai{
-    visibility: hidden;
-}
-#trUniswap{
-    visibility: hidden;
-}
-#trAxs{
-    visibility: hidden;
-}
-#trXrp{
-    visibility: hidden;
-} */
 
+ 

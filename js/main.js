@@ -102,7 +102,7 @@ let valueConvertidoOcho = valueIngresadoOcho * xrp;
 
 }
 
-//Aca voy a empezar con el for para calcular a la vez varias cantidades de plata de diferentes divisas
+//Funcion con for para conversion de pesos a usd
 for(let i = 0; i<=5; i=i+1){
     function conversorDolarPeso(){
         //Agarro valores html
@@ -133,20 +133,19 @@ for(let i = 0; i<=5; i=i+1){
         dolarConvertidoCuatro.setAttribute("value", valorConvertidoCuatro);
     }
 } 
-function MonedaDivisa(n, o, v,){
-    this.nombre = n;
-    this.origen = o;
-    this.valor = v;
+for(let i = 0; i<=5; i=i+1){
+    function conversorEuro(){
+        const elementoEuro = document.querySelectorAll(".tdEuro");
+        const precioEuro = 295;
+        const elementoPesos = document.querySelectorAll(".tdPesosArg");
+    }
 }
-const dolar = new MonedaDivisa("Dolar", "Estados Unidos", "291");
-const euro = new MonedaDivisa("Euro", "Union Europea", "313");
-const yen = new MonedaDivisa("Yen", "Japon","1,02");
-const realBr = new MonedaDivisa("Real Brasileño","Brasil","29,42");
+
 
 
 function SeleccionCriptomoneda(criptomonedaRecibida){
     this.nombre = criptomonedaRecibida
-
+//Switch con conversor de criptos 
 switch(this.nombre){
     case "Bitcoin":
     alert("Usted eligio Bitcoin");
@@ -155,7 +154,6 @@ switch(this.nombre){
     elementoBtc[0].removeAttribute("hidden");
     elementoBtc[1].removeAttribute("hidden");},250)
     
-  
     break;
     case "Ethereum":
      alert("Usted eligio Ethereum");
@@ -224,6 +222,7 @@ switch(this.nombre){
     // Criptomoneda =alert("La criptomoneda que selecciono no es soportada por esta pagina o es incorrecta");
 }
 }
+//Funcion para ocultar las criptos y que solo sean visibles cuando seleccionas una con el boton
 function ocultarTodasCriptos(){
     let elementoBtc = document.querySelectorAll(".trBitcoin");
     elementoBtc[0].setAttribute("hidden", 'true');
@@ -261,6 +260,7 @@ function ocultarTodasCriptos(){
 
 }
 
+//Objetos que si en algun momento necesito dejare de comentarlos
 // const btc = new Criptomoneda("Bitcoin");
 // const eth = new Criptomoneda("Ethereum");
 // const usdc = new Criptomoneda("Usdc");
