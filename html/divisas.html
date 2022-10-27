@@ -61,7 +61,7 @@
         <tr>
           <th scope="row">15 USD$</th>
           <td><input id="quinceDolares" class="valor" type="number" placeholder="15" /></td>
-          <td><input readonly id="pesosConvertidosDos" type="number"></textarea></td>
+          <td><input readonly id="pesosConvertidosDos" type="number"></td>
         </tr>
         <tr>
           <th scope="row"></th>
@@ -71,7 +71,7 @@
         <tr>
           <th scope="row">25 USD$</th>
           <td><input id="veinticincoDolares" class="valor" type="number" placeholder="25" /></td>
-          <td><input readonly id="pesosConvertidosTres" type="number"></textarea></td>
+          <td><input readonly id="pesosConvertidosTres" type="number"></td>
         </tr>
         <tr>
           <th scope="row"></th>
@@ -81,13 +81,15 @@
         <tr>
           <th scope="row">50 USD$</th>
           <td><input id="cincuentaDolares" class="valor" type="number" placeholder="50" /></td>
-          <td><input readonly id="pesosConvertidosCuatro" type="number"></textarea></td>
+          <td><input readonly id="pesosConvertidosCuatro" type="number"></td>
         </tr>
       </tbody>
     <div class="divBotonDivisas"> <button onclick="conversorDolarPeso()" type="button"
         class="btn btn-primary">Calcular</button></div>
   </table>
 <!-- Aca la tabla con conversor de euro a pesos args -->
+<h4>Se convertirán de euro a pesos argentinos a la vez todos los datos que ingrese en cada casilla, si no ingresa
+  ningún dato, al presionar "Calcular" aparecera un 0.</h4>
   <table class="table">
     <thead>
       <tr>
@@ -99,8 +101,8 @@
       <tbody>
         <tr>
           <th scope="row">5 €</th>
-          <td> <input class="tdEuro" id="cincoEuros" class="valor" type="number" placeholder="5" /></td>
-          <td><input class="tdPesosArg" readonly id="pesosConvertidos" type="number"></td>
+          <td> <input class="tdEuro" id="cincoEuros" type="number" placeholder="5" /></td>
+          <td><input class="tdPesosArg" readonly id="pesosConvertidosCinco" type="number"></td>
         </tr>
         <tr>
          <th scope="row"></th>
@@ -109,8 +111,8 @@
         </tr>
         <tr>
           <th scope="row">15 €</th>
-          <td><input class="tdEuro" id="quinceEuros" class="valor" type="number" placeholder="15" /></td>
-          <td><input class="tdPesosArg" readonly id="pesosConvertidosDos" type="number"></textarea></td>
+          <td><input class="tdEuro" id="quinceEuros" type="number" placeholder="15" /></td>
+          <td><input class="tdPesosArg" readonly id="pesosConvertidosSeis" type="number"></textarea></td>
         </tr>
         <tr>
           <th scope="row"></th>
@@ -119,8 +121,8 @@
         </tr>
         <tr>
           <th scope="row">25 €</th>
-          <td><input class="tdEuro" id="veinticincoEuros" class="valor" type="number" placeholder="25" /></td>
-          <td><input class="tdPesosArg" readonly id="pesosConvertidosTres" type="number"></textarea></td>
+          <td><input class="tdEuro" id="veinticincoEuros" type="number" placeholder="25" /></td>
+          <td><input class="tdPesosArg" readonly id="pesosConvertidosSiete" type="number"></textarea></td>
         </tr>
         <tr>
           <th scope="row"></th>
@@ -129,8 +131,8 @@
         </tr>
         <tr>
           <th scope="row">50 €</th>
-          <td><input class="tdEuro" id="cincuentaEuros" class="valor" type="number" placeholder="50" /></td>
-          <td><input class="tdPesosArg" readonly id="pesosConvertidosCuatro" type="number"></textarea></td>
+          <td><input class="tdEuro" id="cincuentaEuros" type="number" placeholder="50" /></td>
+          <td><input class="tdPesosArg" readonly id="pesosConvertidosOcho" type="number"></textarea></td>
         </tr>
       </tbody>
     <div class="divBotonDivisas"> <button onclick="conversorEuro()" type="button"

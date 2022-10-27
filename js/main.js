@@ -133,11 +133,39 @@ for(let i = 0; i<=5; i=i+1){
         dolarConvertidoCuatro.setAttribute("value", valorConvertidoCuatro);
     }
 } 
+
 for(let i = 0; i<=5; i=i+1){
     function conversorEuro(){
-        const elementoEuro = document.querySelectorAll(".tdEuro");
+        const elementoEuro = ['primerValor','segundoValor','tercerValor','cuartoValor'];
+        elementoEuro[0] = document.getElementById('cincoEuros');
+        elementoEuro[1] = document.getElementById('quinceEuros');
+        elementoEuro[2] = document.getElementById('veinticincoEuros');
+        elementoEuro[3] = document.getElementById('cincuentaEuros');
         const precioEuro = 295;
         const elementoPesos = document.querySelectorAll(".tdPesosArg");
+        //Agarro los valores de pesos
+        const euroConvertido = [1,2,3,4];
+        euroConvertido[0] = document.getElementById('pesosConvertidosCinco');
+        euroConvertido[1] = document.getElementById('pesosConvertidosSeis');
+        euroConvertido[2] = document.getElementById('pesosConvertidosSiete');
+        euroConvertido[3] = document.getElementById('pesosConvertidosOcho');
+        //Leo los valores que agarre
+        const valorIngresadoEuro = [1,2,3,4];
+        valorIngresadoEuro[0] = document.getElementById('cincoEuros').value;
+        valorIngresadoEuro[1] = document.getElementById('quinceEuros').value;
+        valorIngresadoEuro[2] = document.getElementById('veinticincoEuros').value;
+        valorIngresadoEuro[3] = document.getElementById('cincuentaEuros').value;
+        //Hago la conversion
+        const valorConvertidoEuros = [1,2,3,4];
+        valorConvertidoEuros[0] = valorIngresadoEuro[0] * precioEuro;
+        valorConvertidoEuros[1] = valorIngresadoEuro[1] * precioEuro;
+        valorConvertidoEuros[2] = valorIngresadoEuro[2] * precioEuro;
+        valorConvertidoEuros[3] = valorIngresadoEuro[3] * precioEuro;
+        //Seteo
+        euroConvertido[0].setAttribute("value",valorConvertidoEuros[0]);
+        euroConvertido[1].setAttribute("value",valorConvertidoEuros[1]);
+        euroConvertido[2].setAttribute("value",valorConvertidoEuros[2]);
+        euroConvertido[3].setAttribute("value",valorConvertidoEuros[3]);
     }
 }
 
