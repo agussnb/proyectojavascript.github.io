@@ -168,7 +168,42 @@ for(let i = 0; i<=5; i=i+1){
         euroConvertido[3].setAttribute("value",valorConvertidoEuros[3]);
     }
 }
+for(let i = 0; i<5; i=i1+1){
+    function conversorYen(){
+        const elementoYen = [0,1,2,3];
+        //Agarro los valores de los yenes
+        elementoYen[0] = document.getElementById('cincoYens');
+        elementoYen[1] = document.getElementById('quinceYens');
+        elementoYen[2] = document.getElementById('veinticincoYens');
+        elementoYen[3] = document.getElementById('cincuentaYens');
+        const precioYen = 1.06;
+        //Agarro los valores de los pesos
+        const yenConvertido = [0,1,2,3];
+        yenConvertido[0] = document.getElementById('pesosConvertidosNueve');
+        yenConvertido[1] = document.getElementById('pesosConvertidosDiez');
+        yenConvertido[2] = document.getElementById('pesosConvertidosOnce');
+        yenConvertido[3] = document.getElementById('pesosConvertidosDoce');
+        //Leo los valores ingresados
+        const valorIngresadoYen = [0,1,2,3];
+        valorIngresadoYen[0] = document.getElementById('cincoYens').value;
+        valorIngresadoYen[1] = document.getElementById('quinceYens').value;
+        valorIngresadoYen[2] = document.getElementById('veinticincoYens').value;
+        valorIngresadoYen[3] = document.getElementById('cincuentaYens').value;
+        //Hago la conversion
+        const valorConvertidoYen = [0,1,2,3];
+        valorConvertidoYen[0] = valorIngresadoYen[0] * precioYen;
+        valorConvertidoYen[1] = valorIngresadoYen[1] * precioYen;
+        valorConvertidoYen[2] = valorIngresadoYen[2] * precioYen;
+        valorConvertidoYen[3] = valorIngresadoYen[3] * precioYen;
+        //Seteo los valores nuevos
+        yenConvertido[0].setAttribute('value',valorConvertidoYen[0]);
+        yenConvertido[1].setAttribute('value',valorConvertidoYen[1]);
+        yenConvertido[2].setAttribute('value',valorConvertidoYen[2]);
+        yenConvertido[3].setAttribute('value',valorConvertidoYen[3]);
 
+
+    }
+}
 
 
 function SeleccionCriptomoneda(criptomonedaRecibida){
