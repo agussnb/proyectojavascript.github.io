@@ -211,7 +211,6 @@ function SeleccionCriptomoneda(criptomonedaRecibida){
 //Switch con conversor de criptos 
 switch(this.nombre){
     case "Bitcoin":
-    alert("Usted eligio Bitcoin");
     ocultarTodasCriptos();
     setTimeout(()=>{let elementoBtc = document.querySelectorAll(".trBitcoin");
     elementoBtc[0].removeAttribute("hidden");
@@ -219,7 +218,6 @@ switch(this.nombre){
     
     break;
     case "Ethereum":
-     alert("Usted eligio Ethereum");
      ocultarTodasCriptos();
      setTimeout(()=>{ let elementoEth = document.querySelectorAll(".trEthereum");
      elementoEth[0].removeAttribute("hidden");
@@ -228,7 +226,6 @@ switch(this.nombre){
    
     break;
     case "Usdc":
-     alert("Usted eligio Usdc");
      ocultarTodasCriptos();
      setTimeout(()=>{let elementoUsdc = document.querySelectorAll(".trUsdc");
      elementoUsdc[0].removeAttribute("hidden");
@@ -237,7 +234,6 @@ switch(this.nombre){
     
     break;
     case "Litecoin":
-     alert("Usted eligio Litecoin");
      ocultarTodasCriptos();
      setTimeout(()=>{let elementoLtc = document.querySelectorAll(".trLitecoin");
      elementoLtc[0].removeAttribute("hidden");
@@ -246,7 +242,6 @@ switch(this.nombre){
     
     break;
     case "Dai":
-     alert("Usted eligio Dai");
      ocultarTodasCriptos();
      setTimeout(()=>{let elementoDai = document.querySelectorAll(".trDai");
      elementoDai[0].removeAttribute("hidden");
@@ -255,7 +250,6 @@ switch(this.nombre){
     
     break;
     case "Uniswap":
-     alert("Usted eligio Uniswap");
      ocultarTodasCriptos();
      setTimeout(()=>{let elementoUni = document.querySelectorAll(".trUniswap");
      elementoUni[0].removeAttribute("hidden");
@@ -264,7 +258,6 @@ switch(this.nombre){
     
     break;
     case "Axs":
-     alert("Usted eligio Axs");
      ocultarTodasCriptos();
      setTimeout(()=>{let elementoAxs = document.querySelectorAll(".trAxs");
      elementoAxs[0].removeAttribute("hidden");
@@ -273,7 +266,6 @@ switch(this.nombre){
     
     break;
     case "Xrp":
-     alert("Usted eligio Xrp");
      ocultarTodasCriptos();
      setTimeout(()=>{let elementoXrp = document.querySelectorAll(".trXrp");
      elementoXrp[0].removeAttribute("hidden");
@@ -282,7 +274,7 @@ switch(this.nombre){
     
     break;
     // default: 
-    // Criptomoneda =alert("La criptomoneda que selecciono no es soportada por esta pagina o es incorrecta");
+    
 }
 }
 //Funcion para ocultar las criptos y que solo sean visibles cuando seleccionas una con el boton
@@ -318,11 +310,92 @@ function ocultarTodasCriptos(){
     let elementoXrp = document.querySelectorAll(".trXrp");
     elementoXrp[0].setAttribute("hidden", 'true');
     elementoXrp[1].setAttribute("hidden",'true');
-
+}
+//Funcion para seleccionar divisa
+function SeleccionDivisa(divisaRecibida){
+this.divisa = divisaRecibida;
+switch(this.divisa){
+    case "Dolar":
+        console.log("Entre en case dolar")
+    ocultarTodasDivisas();
+    console.log("sigo en el case dolar")
+    setTimeout(()=>{let elementoDolar = document.querySelectorAll(".trDolar");
+    elementoDolar[0].removeAttribute("hidden");
+    elementoDolar[1].removeAttribute("hidden");
+    elementoDolar[2].removeAttribute("hidden");
+    elementoDolar[3].removeAttribute("hidden");
+    elementoDolar[4].removeAttribute("hidden");
+    elementoDolar[5].removeAttribute("hidden");
+    elementoDolar[6].removeAttribute("hidden");
+    elementoDolar[7].removeAttribute("hidden");},250)
     
-
+    break;
+    case "Euro":
+        console.log("Entre en el case euro")
+     ocultarTodasDivisas();
+     console.log("sigo en el case euro")
+     setTimeout(()=>{ let elementoEuro = document.querySelectorAll(".trEuro");
+     elementoEuro[0].removeAttribute("hidden");
+     elementoEuro[1].removeAttribute("hidden");
+     elementoEuro[2].removeAttribute("hidden");
+     elementoEuro[3].removeAttribute("hidden");
+     elementoEuro[4].removeAttribute("hidden");
+     elementoEuro[5].removeAttribute("hidden");
+     elementoEuro[6].removeAttribute("hidden");
+     elementoEuro[7].removeAttribute("hidden");},250)
+   
+    break;
+    case "Yen":
+        console.log("Entre en el case yen")
+     ocultarTodasDivisas();
+     console.log("sigo en el case yen")
+     setTimeout(()=>{let elementoYen = document.querySelectorAll(".trYen");
+     elementoYen[0].removeAttribute("hidden");
+     elementoYen[1].removeAttribute("hidden");
+     elementoYen[2].removeAttribute("hidden");
+     elementoYen[3].removeAttribute("hidden");
+     elementoYen[4].removeAttribute("hidden");
+     elementoYen[5].removeAttribute("hidden");
+     elementoYen[6].removeAttribute("hidden");
+     elementoYen[7].removeAttribute("hidden");},250)
+    break;
+    }
 }
 
+//Funcion para ocultar las divisas
+function ocultarTodasDivisas(){
+    //Dolar
+let elementoDolar = document.querySelectorAll(".trDolar");
+elementoDolar[0].setAttribute("hidden","true");
+elementoDolar[1].setAttribute("hidden","true");
+elementoDolar[2].setAttribute("hidden","true");
+elementoDolar[3].setAttribute("hidden","true");
+elementoDolar[4].setAttribute("hidden","true");
+elementoDolar[5].setAttribute("hidden","true");
+elementoDolar[6].setAttribute("hidden","true");
+elementoDolar[7].setAttribute("hidden","true");
+    //Euro
+let elementoEuro = document.querySelectorAll(".trEuro");
+elementoEuro[0].setAttribute("hidden","true");
+elementoEuro[1].setAttribute("hidden","true");
+elementoEuro[2].setAttribute("hidden","true");
+elementoEuro[3].setAttribute("hidden","true");
+elementoEuro[4].setAttribute("hidden","true");
+elementoEuro[5].setAttribute("hidden","true");
+elementoEuro[6].setAttribute("hidden","true");
+elementoEuro[7].setAttribute("hidden","true");
+    //Yen
+let elementoYen = document.querySelectorAll(".trYen");
+elementoYen[0].setAttribute("hidden","true");
+elementoYen[1].setAttribute("hidden","true");
+elementoYen[2].setAttribute("hidden","true");
+elementoYen[3].setAttribute("hidden","true");
+elementoYen[4].setAttribute("hidden","true");
+elementoYen[5].setAttribute("hidden","true");
+elementoYen[6].setAttribute("hidden","true");
+elementoYen[7].setAttribute("hidden","true");
+    //Yuan
+}
 //Objetos que si en algun momento necesito dejare de comentarlos
 // const btc = new Criptomoneda("Bitcoin");
 // const eth = new Criptomoneda("Ethereum");
