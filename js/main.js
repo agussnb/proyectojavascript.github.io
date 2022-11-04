@@ -168,7 +168,7 @@ for(let i = 0; i<=5; i=i+1){
         euroConvertido[3].setAttribute("value",valorConvertidoEuros[3]);
     }
 }
-for(let i = 0; i<5; i=i1+1){
+for(let i = 0; i<5; i=i+1){
     function conversorYen(){
         const elementoYen = [0,1,2,3];
         //Agarro los valores de los yenes
@@ -313,8 +313,8 @@ function ocultarTodasCriptos(){
 }
 //Funcion para seleccionar divisa
 function SeleccionDivisa(divisaRecibida){
-this.divisa = divisaRecibida;
-switch(this.divisa){
+this.nombreDivisa = divisaRecibida;
+switch(this.nombreDivisa){
     case "Dolar":
         console.log("Entre en case dolar")
     ocultarTodasDivisas();
@@ -327,13 +327,13 @@ switch(this.divisa){
     elementoDolar[4].removeAttribute("hidden");
     elementoDolar[5].removeAttribute("hidden");
     elementoDolar[6].removeAttribute("hidden");
-    elementoDolar[7].removeAttribute("hidden");},250)
-    
+    elementoDolar[7].removeAttribute("hidden");
+    elementoDolar[8].removeAttribute("hidden");},250)
     break;
     case "Euro":
-        console.log("Entre en el case euro")
+        console.log("Entre en el case euro");
      ocultarTodasDivisas();
-     console.log("sigo en el case euro")
+     console.log("sigo en el case euro");
      setTimeout(()=>{ let elementoEuro = document.querySelectorAll(".trEuro");
      elementoEuro[0].removeAttribute("hidden");
      elementoEuro[1].removeAttribute("hidden");
@@ -342,13 +342,13 @@ switch(this.divisa){
      elementoEuro[4].removeAttribute("hidden");
      elementoEuro[5].removeAttribute("hidden");
      elementoEuro[6].removeAttribute("hidden");
-     elementoEuro[7].removeAttribute("hidden");},250)
-   
+     elementoEuro[7].removeAttribute("hidden");
+     elementoEuro[8].removeAttribute("hidden");},250)
     break;
     case "Yen":
-        console.log("Entre en el case yen")
+        console.log("Entre en el case yen");
      ocultarTodasDivisas();
-     console.log("sigo en el case yen")
+     console.log("sigo en el case yen");
      setTimeout(()=>{let elementoYen = document.querySelectorAll(".trYen");
      elementoYen[0].removeAttribute("hidden");
      elementoYen[1].removeAttribute("hidden");
@@ -357,7 +357,8 @@ switch(this.divisa){
      elementoYen[4].removeAttribute("hidden");
      elementoYen[5].removeAttribute("hidden");
      elementoYen[6].removeAttribute("hidden");
-     elementoYen[7].removeAttribute("hidden");},250)
+     elementoYen[7].removeAttribute("hidden");
+     elementoYen[8].removeAttribute("hidden");},250)
     break;
     }
 }
@@ -374,6 +375,7 @@ elementoDolar[4].setAttribute("hidden","true");
 elementoDolar[5].setAttribute("hidden","true");
 elementoDolar[6].setAttribute("hidden","true");
 elementoDolar[7].setAttribute("hidden","true");
+elementoDolar[8].setAttribute("hidden","true");
     //Euro
 let elementoEuro = document.querySelectorAll(".trEuro");
 elementoEuro[0].setAttribute("hidden","true");
@@ -384,6 +386,7 @@ elementoEuro[4].setAttribute("hidden","true");
 elementoEuro[5].setAttribute("hidden","true");
 elementoEuro[6].setAttribute("hidden","true");
 elementoEuro[7].setAttribute("hidden","true");
+elementoEuro[8].setAttribute("hidden","true");
     //Yen
 let elementoYen = document.querySelectorAll(".trYen");
 elementoYen[0].setAttribute("hidden","true");
@@ -394,6 +397,7 @@ elementoYen[4].setAttribute("hidden","true");
 elementoYen[5].setAttribute("hidden","true");
 elementoYen[6].setAttribute("hidden","true");
 elementoYen[7].setAttribute("hidden","true");
+elementoYen[8].setAttribute("hidden","true");
     //Yuan
 }
 //Objetos que si en algun momento necesito dejare de comentarlos
