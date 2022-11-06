@@ -672,6 +672,8 @@ function ocultarTodasDivisas() {
     elementoPesoMexicano[7].setAttribute("hidden", "true");
     elementoPesoMexicano[8].setAttribute("hidden", "true");
 }
+
+
 //Objetos que si en algun momento necesito dejare de comentarlos
 // const btc = new Criptomoneda("Bitcoin");
 // const eth = new Criptomoneda("Ethereum");
