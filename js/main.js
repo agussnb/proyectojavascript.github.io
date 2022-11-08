@@ -699,16 +699,22 @@ function ocultarTodasDivisas() {
     // {nombre:'Peso Argentino'},
     // {nombre:'Peso Chileno'},
     // {nombre:'Peso Mexicano'}]
-    
+let criptoRecibido; 
+let divisaRecibida;
 function cargarCriptoSeleccionada(nombreCriptoRecibido){
   
     let botonCriptoHtml = document.getElementById('criptoIntroducida');
     botonCriptoHtml.setAttribute("value",nombreCriptoRecibido);
-    
+
+   criptoRecibido = nombreCriptoRecibido;
+
 }
 function cargarDivisaSeleccionada(nombreDivisaRecibida){
     let botonDivisaHtml = document.getElementById('divisaIntroducida');
     botonDivisaHtml.setAttribute("value",nombreDivisaRecibida);
+
+   divisaRecibida = nombreDivisaRecibida;
+
 }
 function conversionSeleccionada(){
     let botonConversionHtml = document.getElementById('confirmacionConversion');
@@ -716,10 +722,11 @@ function conversionSeleccionada(){
     let negacionConversionSeleccionada = "NO";
     console.log("Antes del switch")
    
-    switch(cargarCriptoSeleccionada){
+    
+    switch(criptoRecibido){
         case "Bitcoin":
             console.log("Case bitcoin");
-            switch(cargarDivisaSeleccionada){
+            switch(divisaRecibida){
                 case "Dolar":
                     botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
                     console.log("case dolar del case bitcoin");
