@@ -170,7 +170,59 @@
         </tbody>
       </table>
     </div>
-  
+    <h5>Si desea saber qué conversiones se pueden hacer en la página, introduzca una en el cuadro de texto y presione "validar"</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Criptomoneda
+            <div class="dropdown">
+              <button  class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Seleccione Criptomoneda
+              </button>
+              <ul class="dropdown-menu">
+                <li><button onclick="cargarCriptoSeleccionada('Bitcoin')" class="btnBitcoin dropdown-item">Bitcoin</button></li>
+                <li><button onclick="cargarCriptoSeleccionada('Ethereum')" class="btnEthereum dropdown-item">Ethereum</button></li>
+                <li><button onclick="cargarCriptoSeleccionada('Usdc')" class="btnUsdc dropdown-item">Usdc</button></li>
+                <li><button onclick="cargarCriptoSeleccionada('Litecoin')" class="btnLitecoin dropdown-item">Litecoin</button></li>
+                <li><button onclick="cargarCriptoSeleccionada('Dai')" class="btnDai dropdown-item">Dai</button></li>
+                <li><button onclick="cargarCriptoSeleccionada('Uniswap')" class="btnUniswap dropdown-item">Uniswap</button></li>
+                <li><button onclick="cargarCriptoSeleccionada('Axs')" class="btnAxs dropdown-item">Axs</button></li>
+                <li><button onclick="cargarCriptoSeleccionada('Xrp')" class="btnXrp dropdown-item">Xrp</button></li>
+              </ul>
+            </div>
+          </th>
+          <th scope="col">Divisa
+            <div class="dropdown">
+              <button  class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Seleccione Divisa
+              </button>
+              <ul class="dropdown-menu">
+                <li><button onclick="cargarDivisaSeleccionada('Dolar')"  class="btnDolar dropdown-item">Dolar</button></li>
+                <li><button onclick="cargarDivisaSeleccionada('Euro')"  class="btnEuro dropdown-item">Euro</button></li>
+                <li><button onclick="cargarDivisaSeleccionada('Yen')" class="btnYen dropdown-item">Yen</button></li>
+                <li><button onclick="cargarDivisaSeleccionada('Yuan')" class="btnYuan dropdown-item">Yuan</button></li>
+                <li><button onclick="cargarDivisaSeleccionada('Rublo')" class="btnRublo dropdown-item">Rublo</button></li>
+                <li><button onclick="cargarDivisaSeleccionada('Peso Argentino')" class="btnPesoArgentino dropdown-item">Peso Argentino</button></li>
+                <li><button onclick="cargarDivisaSeleccionada('Peso Chileno')" class="btnPesoChileno dropdown-item">Peso Chileno</button></li>
+                <li><button onclick="cargarDivisaSeleccionada('Peso Mexicano')" class="btnPesoMexicano dropdown-item">Peso Mexicano</button></li>
+              </ul>
+            </div>
+          </th>
+          <th scope="col">
+            <div class="divBotonDivisas"> <button onclick="conversionSeleccionada()" type="button"
+                class="btn btn-primary">Validar</button></div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <input readonly id="criptoIntroducida" class="valor" type="text" /></td>
+          <td><input readonly id="divisaIntroducida" type="text"></td>
+          <td><input readonly id="conversionValidada" type="text"></td>
+        </tr>
+      
+      </tbody>
+    </table>
 
   <script src="/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

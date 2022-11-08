@@ -135,11 +135,20 @@ for (let i = 0; i <= 5; i = i + 1) {
         let valorConvertidoTres = valorIngresadoTres * precioDolar;
         let valorConvertidoCuatro = valorIngresadoCuatro * precioDolar;
         //Y setteo los valores nuevos convertidos
+        setearValores(valorConvertido, valorConvertidoDos, valorConvertidoTres, valorConvertidoCuatro)
+
+    }
+    function setearValores(valorConvertido, valorConvertidoDos, valorConvertidoTres, valorConvertidoCuatro){
+        let dolarConvertido = document.getElementById("pesosConvertidos")
+        let dolarConvertidoDos = document.getElementById("pesosConvertidosDos")
+        let dolarConvertidoTres = document.getElementById("pesosConvertidosTres")
+        let dolarConvertidoCuatro = document.getElementById("pesosConvertidosCuatro")
+
         dolarConvertido.setAttribute("value", valorConvertido);
         dolarConvertidoDos.setAttribute("value", valorConvertidoDos);
         dolarConvertidoTres.setAttribute("value", valorConvertidoTres);
         dolarConvertidoCuatro.setAttribute("value", valorConvertidoCuatro);
-    }
+   }
 }
 //For con funcion para convertir de euro a peso arg
 for (let i = 0; i <= 5; i = i + 1) {
@@ -672,14 +681,97 @@ function ocultarTodasDivisas() {
     elementoPesoMexicano[7].setAttribute("hidden", "true");
     elementoPesoMexicano[8].setAttribute("hidden", "true");
 }
+//Funcion para saber si una criptomoneda esta o no en la pagina
 
-
-//Objetos que si en algun momento necesito dejare de comentarlos
-// const btc = new Criptomoneda("Bitcoin");
-// const eth = new Criptomoneda("Ethereum");
-// const usdc = new Criptomoneda("Usdc");
-// const ltc = new Criptomoneda("Litecoin");
-// const dai = new Criptomoneda("Dai");
-// const uni = new Criptomoneda("Uniswap");
-// const axs = new Criptomoneda("Axs");
-// const xrp = new Criptomoneda("Xrp");
+    // const criptomonedaSeleccionado = [{nombre:'Bitcoin'},
+    // {nombre:'Ethereum'},
+    // {nombre:'Usdc'},
+    // {nombre:'Litecoin'},
+    // {nombre:'Dai'},
+    // {nombre:'Uniswap'},
+    // {nombre:'Axs'},
+    // {nombre:'Xrp'}]
+    // const divisaSeleccionado = [{nombre:'Dolar'},
+    // {nombre:'Euro'},
+    // {nombre:'Yen'},
+    // {nombre:'Yuan'},
+    // {nombre:'Rublo'},
+    // {nombre:'Peso Argentino'},
+    // {nombre:'Peso Chileno'},
+    // {nombre:'Peso Mexicano'}]
+    
+function cargarCriptoSeleccionada(nombreCriptoRecibido){
+  
+    let botonCriptoHtml = document.getElementById('criptoIntroducida');
+    botonCriptoHtml.setAttribute("value",nombreCriptoRecibido);
+    
+}
+function cargarDivisaSeleccionada(nombreDivisaRecibida){
+    let botonDivisaHtml = document.getElementById('divisaIntroducida');
+    botonDivisaHtml.setAttribute("value",nombreDivisaRecibida);
+}
+function conversionSeleccionada(){
+    let botonConversionHtml = document.getElementById('conversionValidada');
+    let confirmacionConversionSeleccionada = "SI";
+    let negacionConversionSeleccionada = "NO";
+    console.log("Antes del switch")
+    switch(cargarCriptoSeleccionada){
+        case "Bitcoin":
+            console.log("Case bitcoin");
+            switch(cargarDivisaSeleccionada){
+                case "Dolar":
+                    botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
+                    console.log("case dolar del case bitcoin del switch cargarCriptoSeleccionada de la funcion conversionSeleccionada bue la hacia re larga");
+                    break;
+                case "Euro":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yen":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yuan":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Rublo":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Argentino":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Chileno":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Mexicano":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+            }
+        break;
+    case "Ethereum":
+            switch(cargarDivisaSeleccionada){
+                case "Dolar":
+                    botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
+                    break;
+                case "Euro":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yen":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yuan":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Rublo":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Argentino":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Chileno":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Mexicano":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+            }
+    }
+}
