@@ -711,17 +711,18 @@ function cargarDivisaSeleccionada(nombreDivisaRecibida){
     botonDivisaHtml.setAttribute("value",nombreDivisaRecibida);
 }
 function conversionSeleccionada(){
-    let botonConversionHtml = document.getElementById('conversionValidada');
+    let botonConversionHtml = document.getElementById('confirmacionConversion');
     let confirmacionConversionSeleccionada = "SI";
     let negacionConversionSeleccionada = "NO";
     console.log("Antes del switch")
+   
     switch(cargarCriptoSeleccionada){
         case "Bitcoin":
             console.log("Case bitcoin");
             switch(cargarDivisaSeleccionada){
                 case "Dolar":
                     botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
-                    console.log("case dolar del case bitcoin del switch cargarCriptoSeleccionada de la funcion conversionSeleccionada bue la hacia re larga");
+                    console.log("case dolar del case bitcoin");
                     break;
                 case "Euro":
                     botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
@@ -753,7 +754,7 @@ function conversionSeleccionada(){
                     break;
                 case "Euro":
                     botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
-                    break;
+                    // break;
                 case "Yen":
                     botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
                     break;
@@ -774,4 +775,5 @@ function conversionSeleccionada(){
                     break;
             }
     }
+    console.log('despues del switch');
 }
