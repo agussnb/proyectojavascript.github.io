@@ -682,23 +682,6 @@ function ocultarTodasDivisas() {
     elementoPesoMexicano[8].setAttribute("hidden", "true");
 }
 //Funcion para saber si una criptomoneda esta o no en la pagina
-
-    // const criptomonedaSeleccionado = [{nombre:'Bitcoin'},
-    // {nombre:'Ethereum'},
-    // {nombre:'Usdc'},
-    // {nombre:'Litecoin'},
-    // {nombre:'Dai'},
-    // {nombre:'Uniswap'},
-    // {nombre:'Axs'},
-    // {nombre:'Xrp'}]
-    // const divisaSeleccionado = [{nombre:'Dolar'},
-    // {nombre:'Euro'},
-    // {nombre:'Yen'},
-    // {nombre:'Yuan'},
-    // {nombre:'Rublo'},
-    // {nombre:'Peso Argentino'},
-    // {nombre:'Peso Chileno'},
-    // {nombre:'Peso Mexicano'}]
 let criptoRecibido; 
 let divisaRecibida;
 function cargarCriptoSeleccionada(nombreCriptoRecibido){
@@ -755,13 +738,175 @@ function conversionSeleccionada(){
             }
         break;
     case "Ethereum":
-            switch(cargarDivisaSeleccionada){
+            switch(divisaRecibida){
                 case "Dolar":
                     botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
                     break;
                 case "Euro":
                     botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
-                    // break;
+                     break;
+                case "Yen":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yuan":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Rublo":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Argentino":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Chileno":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Mexicano":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+            }
+        case "Usdc":
+            switch(divisaRecibida){
+                case "Dolar":
+                    botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
+                    break;
+                case "Euro":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                     break;
+                case "Yen":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yuan":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Rublo":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Argentino":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Chileno":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Mexicano":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+            }
+        case "Litecoin":
+            switch(divisaRecibida){
+                case "Dolar":
+                    botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
+                    break;
+                case "Euro":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                     break;
+                case "Yen":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yuan":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Rublo":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Argentino":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Chileno":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Mexicano":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+            }
+        case "Dai":
+            switch(divisaRecibida){
+                case "Dolar":
+                    botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
+                    break;
+                case "Euro":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                     break;
+                case "Yen":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yuan":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Rublo":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Argentino":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Chileno":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Mexicano":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+            }
+        case "Uniswap":
+            switch(divisaRecibida){
+                case "Dolar":
+                    botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
+                    break;
+                case "Euro":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                     break;
+                case "Yen":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yuan":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Rublo":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Argentino":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Chileno":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Mexicano":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+            }
+        case "Axs":
+            switch(divisaRecibida){
+                case "Dolar":
+                    botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
+                    break;
+                case "Euro":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                     break;
+                case "Yen":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Yuan":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Rublo":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Argentino":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Chileno":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+                case "Peso Mexicano":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                    break;
+            }
+        case "Xrp":
+            switch(divisaRecibida){
+                case "Dolar":
+                    botonConversionHtml.setAttribute("value",confirmacionConversionSeleccionada);
+                    break;
+                case "Euro":
+                    botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
+                     break;
                 case "Yen":
                     botonConversionHtml.setAttribute("value",negacionConversionSeleccionada);
                     break;
@@ -782,5 +927,5 @@ function conversionSeleccionada(){
                     break;
             }
     }
-    console.log('despues del switch');
+ 
 }
