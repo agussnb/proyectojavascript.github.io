@@ -19,9 +19,9 @@ function seleccionDivisa(moneda){
 
     return `<div>
                     <h3 class="h3NombreMoneda">${nombreMoneda + moneda.simbolo}</h3>
-                    <p>El precio es de: $${precioMoneda}</p>
-                    <input type="text" id="monto">¿Cuanto deseas convertir?</input>
-                    <button onclick="calcular(${precioMoneda})">Calcular</button>
+                    <p>El precio es de pesos Argentinos: $${precioMoneda}</p>
+                    <input type="text" id="monto"><strong>¿Cuanto deseas convertir?</strong></input>
+                    <button onclick="calcularDivisa(${precioMoneda})">Calcular</button>
                     <p>El total es de pesos Argentinos: </p>
                     <p id="resultado"></p>
                 </div>
@@ -34,7 +34,7 @@ function renderDivisa(id){
     containerDivisa.innerHTML = seleccionDivisa(resultDivisa)
 }
 //Hago una funcion que sirve para hacer los calculos
-function calcular(precioMoneda){
+function calcularDivisa(precioMoneda){
     let montoIngresado = document.getElementById("monto");
     let resultContainer = document.getElementById("resultado");
 
@@ -44,9 +44,60 @@ function calcular(precioMoneda){
 
     resultContainer.innerHTML = `$${result}`
 }
+const containerConversionesMultiples = document.getElementById('containerConversionesMultiples');
+function conversionesMultiples(){
+   
+    return `<div>
+                    <table>
+                    <tr><th>Opcion 1</th>
+                            <td><input id="montoUno" type="number"><strong>¿Cuantos dolares queres convertir a pesos Argentinos?</strong></input></td>
+                    </tr>
+                    <tr><th>Opcion 2</th>
+                            <td><input id="montoDos" type="number"><strong>¿Cuantos dolares queres convertir a pesos Argentinos?</strong></input></td>
+                    </tr>
+                    <tr><th>Opcion 3</th>
+                            <td><input id="montoTres" type="number"><strong>¿Cuantos dolares queres convertir a pesos Argentinos?</strong></input></td>
+                    </tr>
+                    <br>
+                    </table>
+                    <button onclick="calcularMultiples()">Calcular</button>
+                    <p>El total es de pesos Argentinos: </p>
+                    <p id="resultadoUno"></p>
+                    <p id="resultadoDos"></p>
+                    <p id="resultadoTres"></p>
+                </div>
+    `
+}
+function renderConversionesMultiples(){
+    containerConversionesMultiples.innerHTML = conversionesMultiples()
+}
+for(let i=0; i<=3; i=i+1){
+    function calcularMultiples(){
+        let precioDolar = 291
+        let montoIngresadoUno = document.getElementById('montoUno');
+        let montoIngresadoDos = document.getElementById('montoDos');
+        let montoIngresadoTres = document.getElementById('montoTres');
+
+        let resultadoContainerUno = document.getElementById('resultadoUno');
+        let resultadoContainerDos = document.getElementById('resultadoDos');
+        let resultadoContainerTres = document.getElementById('resultadoTres');
+
+         let resultadoUno = montoIngresadoUno.value * precioDolar;
+         let resultadoDos = montoIngresadoDos.value * precioDolar;
+         let resultadoTres = montoIngresadoTres.value * precioDolar;
+
+         resultadoContainerUno.innerHTML = `$${resultadoUno}`
+         resultadoContainerDos.innerHTML = `$${resultadoDos}`
+         resultadoContainerTres.innerHTML = `$${resultadoTres}`
+    }
+}
+
+
 // Arranco con la parte de las criptos
 
-//----- Array con las criptos
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Array con las criptos
 const cripto = [
 {nombreCripto:"Bitcoin",precioCripto:16582.8, id:"bitcoin"},
 {nombreCripto:"Ethereum",precioCripto:1204.25, id:"ethereum"},
@@ -66,7 +117,7 @@ function seleccionCripto(cripto){
                          <h3 class="h3NombreCripto">${nombreCripto}</h3>
                          <p>El precio es de dolares: $${precioCripto}</p>
                          <input type="text" id="montoCripto">¿Cuanto deseas convertir?</input>
-                         <button onclick="calcular(${precioCripto})">Calcular</button>
+                         <button onclick="calcularCripto(${precioCripto})">Calcular</button>
                          <p>El total es de dolares: </p>
                          <p id="resultadoCripto"></p>
                 </div>
@@ -79,7 +130,7 @@ function renderCripto(id){
     containerCripto.innerHTML = seleccionCripto(resultCripto)
 }
 //Hago una funcion que sirve para hacer los calculos
-function calcular(precioCripto){
+function calcularCripto(precioCripto){
     let montoIngresadoCripto = document.getElementById("montoCripto");
     let resultContainerCripto = document.getElementById("resultadoCripto");
 
