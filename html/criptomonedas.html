@@ -36,7 +36,8 @@
       </div>
     </nav>
   </header>
-
+<p>Conversion de dolares a criptomonedas</p>
+ 
 <button value="bitcoin" onclick="renderCripto(value)">Bitcoin</button>
 <button value="ethereum" onclick="renderCripto(value)">Ethereum</button>
 <button value="usdc" onclick="renderCripto(value)">Usdc</button>
@@ -53,13 +54,25 @@
 <button value="conversionesMultiplesBitcoin" onclick="renderConversionesMultiplesBitcoin(value)">Conversion multiple</button>
 
 <div id="containerConversionesMultiplesBitcoin"></div>
+<br>
+<h5>Subi el volumen antes de pulsar el botón</h5>
+<button class="botonParlante" onclick="botonParlante()">APRETAME</button>
+
+
+
+<script>
+  const botonParlante = ()=>{
+  let voice = new SpeechSynthesisUtterance();
+  voice.text = "Pódes pasar de dólares a criptomonedas, y, en el botón de conversión múltiple, de bitcoin a dólares "
+  voice.lang = "es-US";
+  speechSynthesis.speak(voice);
+  }
+</script>
 
   <script src="/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
   </script>
-
-
    <footer>Alumno: Agustin Barrero - Comisión: 45200 - Copyright ©</footer>
 </body>
 

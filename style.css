@@ -66,8 +66,8 @@ h3 {
 }
 
 .row {
-    position: relative;
-    left: 85px;
+   display: flex;
+   justify-content: center;
 }
 
 .divCriptomonedas {
@@ -78,8 +78,8 @@ h3 {
 }
 
 .btn-primary {
-    position: relative;
-    left: 25px;
+ display: flex;
+ justify-content: center;
 }
 
 .btn {
@@ -109,8 +109,6 @@ button {
     border-radius: 5px;
     background-color: rgb(233, 14, 14);
     color: #ffff;
-    position: relative;
-    top: 4px;
 }
 
 p {
@@ -185,4 +183,8 @@ text{
     color: white;
     width: fit-content;
     border-radius: 10px;
+}
+.botonParlante{
+    position: relative;
+    left: 55px;
 }
