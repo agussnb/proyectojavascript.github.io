@@ -93,6 +93,8 @@ for(let i=0; i<=3; i=i+1){
 }
 
 
+
+
 // Arranco con la parte de las criptos
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -140,3 +142,61 @@ function calcularCripto(precioCripto){
 
     resultContainerCripto.innerHTML = `$${resultCripto}`
 }
+//Guardando las monedas en el local storage
+const monedaString = JSON.stringify(moneda);
+localStorage.setItem('Moneda',monedaString);
+let monedaStorage = JSON.parse(localStorage.getItem('moneda'));
+
+//Guardando las criptos en el local storage
+const criptoString = JSON.stringify(cripto);
+localStorage.setItem('Cripto',criptoString);
+let criptoStorage = JSON.parse(localStorage.getItem('cripto'));
+
+const containerConversionesMultiplesBitcoin = document.getElementById('containerConversionesMultiplesBitcoin');
+function conversionesMultiplesBitcoin(){
+   
+    return `<div>
+                    <table>
+                    <tr><th>Opcion 1</th>
+                            <td><input id="montoBitcoinUno" type="number"><strong>¿Cuantos Btc queres convertir a dolares?</strong></input></td>
+                    </tr>
+                    <tr><th>Opcion 2</th>
+                            <td><input id="montoBitcoinDos" type="number"><strong>¿Cuantos Btc queres convertir a dolares?</strong></input></td>
+                    </tr>
+                    <tr><th>Opcion 3</th>
+                            <td><input id="montoBitcoinTres" type="number"><strong>¿Cuantos Btc queres convertir a dolares?</strong></input></td>
+                    </tr>
+                    <br>
+                    </table>
+                    <button onclick="calcularMultiplesBitcoin()">Calcular</button>
+                    <p>El total es de pesos Argentinos: </p>
+                    <p id="resultadoBitcoinUno"></p>
+                    <p id="resultadoBitcoinDos"></p>
+                    <p id="resultadoBitcoinTres"></p>
+                </div>
+    `
+}
+function renderConversionesMultiplesBitcoin(){
+    containerConversionesMultiplesBitcoin.innerHTML = conversionesMultiplesBitcoin()
+}
+for(let i=0; i<=3; i=i+1){
+    function calcularMultiplesBitcoin(){
+        let precioBitcoin = 16582.8;
+        let montoIngresadoBitcoinUno = document.getElementById('montoBitcoinUno');
+        let montoIngresadoBitcoinDos = document.getElementById('montoBitcoinDos');
+        let montoIngresadoBitcoinTres = document.getElementById('montoBitcoinTres');
+
+        let resultadoContainerBitcoinUno = document.getElementById('resultadoBitcoinUno');
+        let resultadoContainerBitcoinDos = document.getElementById('resultadoBitcoinDos');
+        let resultadoContainerBitcoinTres = document.getElementById('resultadoBitcoinTres');
+
+         let resultadoBitcoinUno = montoIngresadoBitcoinUno.value * precioBitcoin;
+         let resultadoBitcoinDos = montoIngresadoBitcoinDos.value * precioBitcoin;
+         let resultadoBitcoinTres = montoIngresadoBitcoinTres.value * precioBitcoin;
+
+         resultadoContainerBitcoinUno.innerHTML = `$${resultadoBitcoinUno}`
+         resultadoContainerBitcoinDos.innerHTML = `$${resultadoBitcoinDos}`
+         resultadoContainerBitcoinTres.innerHTML = `$${resultadoBitcoinTres}`
+    }
+}
+
