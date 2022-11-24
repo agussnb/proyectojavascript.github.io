@@ -21,20 +21,27 @@ body {
 
 h1 {
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: 'Raleway';
+    font-weight: 450;
 }
 
-nav {
+.navbar {
     padding: 2px;
     border: solid 2px;
     border-radius: 6px;
     max-width: fit-content;
-    background-color: aliceblue;
+    color: white;
     text-decoration: none;
     font-family: 'Raleway';
 }
-
+.navbar-brand , .nav-link, .nav-item {
+    color: white;
+}
+nav a:hover{
+    background-color: rgba(245, 84, 92, 0.836);
+    font-style: oblique;
+}
 .table {
     background-color: white;
 }
@@ -46,7 +53,8 @@ nav {
 }
 
 h4,
-h5 {
+h5,
+h2 {
     color: rgb(0, 0, 0);
     font-family: 'Raleway';
 }
@@ -133,8 +141,6 @@ text{
     width: 300px;
     height: 250px;
     color: #ffff;
-   position: relative;
-   left: 900px;;
    border-radius: 5px;
 }
 .imgDivisasCuadro{

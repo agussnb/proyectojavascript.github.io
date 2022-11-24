@@ -3,14 +3,14 @@
 //------------- Array con las monedas
 
 const moneda = [
-    {simbolo:"$", nombreMoneda:"Dolar", precioMoneda: 291, id:"dolar"},
-    {simbolo:"€", nombreMoneda:"Euro",precioMoneda:295, id:"euro"},
-    {simbolo:"¥", nombreMoneda:"Yen",precioMoneda:1.17, id:"yen"},
-    {simbolo:"¥", nombreMoneda:"Yuan",precioMoneda:22.91, id:"yuan"},
-    {simbolo:"₽", nombreMoneda:"Rublo",precioMoneda:2.69, id:"rublo"},
-    {simbolo:"$", nombreMoneda:"PesoArg",precioMoneda:1, id:"pesoArg"},
-    {simbolo:"$", nombreMoneda:"PesoChl",precioMoneda:0.18, id:"pesoChl"},
-    {simbolo:"$", nombreMoneda:"PesoMex",precioMoneda:8.39, id:"pesoMex"}
+    {simbolo:"$", nombreMoneda:"Dolar", precioMoneda: 291, id:"dolar",precioMonedaDolar:1},
+    {simbolo:"€", nombreMoneda:"Euro",precioMoneda:295, id:"euro",precioMonedaDolar:1.04},
+    {simbolo:"¥", nombreMoneda:"Yen",precioMoneda:1.17, id:"yen",precioMonedaDolar:0.0072},
+    {simbolo:"¥", nombreMoneda:"Yuan",precioMoneda:22.91, id:"yuan",precioMonedaDolar:0.14},
+    {simbolo:"₽", nombreMoneda:"Rublo",precioMoneda:2.69, id:"rublo",precioMonedaDolar:0.017},
+    {simbolo:"$", nombreMoneda:"PesoArg",precioMoneda:1, id:"pesoArg",precioMonedaDolar:0.0061},
+    {simbolo:"$", nombreMoneda:"PesoChl",precioMoneda:0.18, id:"pesoChl",precioMonedaDolar:0.0011},
+    {simbolo:"$", nombreMoneda:"PesoMex",precioMoneda:8.39, id:"pesoMex",precioMonedaDolar:0.052}
 ]
 //Selecciono el div vacio con getElementById y luego hago una funcion que muestre en el html lo que necesito
 const containerDivisa = document.getElementById('containerDivisa');
@@ -91,7 +91,36 @@ for(let i=0; i<=3; i=i+1){
          resultadoContainerTres.innerHTML = `$${resultadoTres}`
     }
 }
+const containerDivisaDolar = document.getElementById('containerDivisaDolar');
+function seleccionDivisaDolar(moneda){
+    const {nombreMoneda, precioMonedaDolar} = moneda;
 
+    return `<div>
+                    <h3 class="h3NombreMoneda">${nombreMoneda + moneda.simbolo}</h3>
+                    <p>El precio es de: $${precioMonedaDolar}</p>
+                    <input type="text" id="montoDolar"><strong>¿Cuanto deseas convertir?</strong></input>
+                    <button onclick="calcularDivisaDolar(${precioMonedaDolar})">Calcular</button>
+                    <p>El total es de dolares: </p>
+                    <p id="resultadoDolar"></p>
+                </div>
+    `
+}
+//Hago una funcion que me busque el find de la divisa requerida
+function renderDivisaDolar(id){
+    let resultDivisaDolar =moneda.find(divisa => divisa.id == id)
+    console.log(resultDivisaDolar)
+    containerDivisaDolar.innerHTML = seleccionDivisaDolar(resultDivisaDolar)
+}
+//Hago una funcion que sirve para hacer los calculos
+function calcularDivisaDolar(precioMonedaDolar){
+    let montoIngresadoDolar = document.getElementById("montoDolar");
+    let resultContainerDolar = document.getElementById("resultadoDolar");
+    let resultDolar = montoIngresadoDolar.value * precioMonedaDolar;
+    console.log(montoIngresadoDolar.value);
+    console.log(resultDolar)
+
+    resultContainerDolar.innerHTML = `$${resultDolar}`
+}
 
 
 
