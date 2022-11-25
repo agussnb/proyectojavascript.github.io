@@ -1,19 +1,27 @@
 //Arranco de cero para mejorar todo el codigo
+//Array de monedas
+const moneda =[  
+    {simbolo:"$", nombreMoneda:"Dolar", precioMoneda: 291, id:"dolar",precioMonedaDolar: 1},
+    {simbolo:"€", nombreMoneda:"Euro",precioMoneda:295, id:"euro",precioMonedaDolar: 1.04},
+    {simbolo:"¥", nombreMoneda:"Yen",precioMoneda:1.17, id:"yen",precioMonedaDolar: 0.072},
+    {simbolo:"¥", nombreMoneda:"Yuan",precioMoneda:22.91, id:"yuan",precioMonedaDolar: 0.14},
+    {simbolo:"₽", nombreMoneda:"Rublo",precioMoneda:2.69, id:"rublo",precioMonedaDolar: 0.016},
+    {simbolo:"$", nombreMoneda:"PesoArg",precioMoneda:1, id:"pesoArg",precioMonedaDolar:0.0060},
+    {simbolo:"$", nombreMoneda:"PesoChl",precioMoneda:0.18, id:"pesoChl",precioMonedaDolar: 0.0011},
+    {simbolo:"$", nombreMoneda:"PesoMex",precioMoneda:8.39, id:"pesoMex",precioMonedaDolar: 0.052}];
 
-//------------- Array con las monedas
-
-const moneda = [
-    {simbolo:"$", nombreMoneda:"Dolar", precioMoneda: 291, id:"dolar",precioMonedaDolar:1},
-    {simbolo:"€", nombreMoneda:"Euro",precioMoneda:295, id:"euro",precioMonedaDolar:1.04},
-    {simbolo:"¥", nombreMoneda:"Yen",precioMoneda:1.17, id:"yen",precioMonedaDolar:0.0072},
-    {simbolo:"¥", nombreMoneda:"Yuan",precioMoneda:22.91, id:"yuan",precioMonedaDolar:0.14},
-    {simbolo:"₽", nombreMoneda:"Rublo",precioMoneda:2.69, id:"rublo",precioMonedaDolar:0.017},
-    {simbolo:"$", nombreMoneda:"PesoArg",precioMoneda:1, id:"pesoArg",precioMonedaDolar:0.0061},
-    {simbolo:"$", nombreMoneda:"PesoChl",precioMoneda:0.18, id:"pesoChl",precioMonedaDolar:0.0011},
-    {simbolo:"$", nombreMoneda:"PesoMex",precioMoneda:8.39, id:"pesoMex",precioMonedaDolar:0.052}
+//Array de criptos
+const cripto = [
+    {nombreCripto:"Bitcoin",precioCripto:16582.8, id:"bitcoin"},
+    {nombreCripto:"Ethereum",precioCripto:1204.25, id:"ethereum"},
+    {nombreCripto:"Usdc",precioCripto:1, id:"usdc"},
+    {nombreCripto:"Litecoin",precioCripto:0.01,id:"litecoin"},
+    {nombreCripto:"Dai",precioCripto:1, id:"dai"},
+    {nombreCripto:"Uniswap",precioCripto:5.79,id:"uniswap"},
+    {nombreCripto:"Axs",precioCripto:7.03,id:"axs"},
+    {nombreCripto:"Xrp",precioCripto:0.38,id:"xrp"}
 ]
-//Selecciono el div vacio con getElementById y luego hago una funcion que muestre en el html lo que necesito
-const containerDivisa = document.getElementById('containerDivisa');
+
 function seleccionDivisa(moneda){
     const {nombreMoneda, precioMoneda} = moneda;
 
@@ -27,13 +35,15 @@ function seleccionDivisa(moneda){
                 </div>
     `
 }
+
 //Hago una funcion que me busque el find de la divisa requerida
 function renderDivisa(id){
     let resultDivisa =moneda.find(divisa => divisa.id == id)
     console.log(resultDivisa)
     containerDivisa.innerHTML = seleccionDivisa(resultDivisa)
 }
-//Hago una funcion que sirve para hacer los calculos
+
+//Hago una funcion que calcule la conversion
 function calcularDivisa(precioMoneda){
     let montoIngresado = document.getElementById("monto");
     let resultContainer = document.getElementById("resultado");
@@ -44,7 +54,7 @@ function calcularDivisa(precioMoneda){
 
     resultContainer.innerHTML = `$${result}`
 }
-const containerConversionesMultiples = document.getElementById('containerConversionesMultiples');
+
 function conversionesMultiples(){
    
     return `<div>
@@ -68,30 +78,11 @@ function conversionesMultiples(){
                 </div>
     `
 }
+
 function renderConversionesMultiples(){
     containerConversionesMultiples.innerHTML = conversionesMultiples()
 }
-for(let i=0; i<=3; i=i+1){
-    function calcularMultiples(){
-        let precioDolar = 291
-        let montoIngresadoUno = document.getElementById('montoUno');
-        let montoIngresadoDos = document.getElementById('montoDos');
-        let montoIngresadoTres = document.getElementById('montoTres');
 
-        let resultadoContainerUno = document.getElementById('resultadoUno');
-        let resultadoContainerDos = document.getElementById('resultadoDos');
-        let resultadoContainerTres = document.getElementById('resultadoTres');
-
-         let resultadoUno = montoIngresadoUno.value * precioDolar;
-         let resultadoDos = montoIngresadoDos.value * precioDolar;
-         let resultadoTres = montoIngresadoTres.value * precioDolar;
-
-         resultadoContainerUno.innerHTML = `$${resultadoUno}`
-         resultadoContainerDos.innerHTML = `$${resultadoDos}`
-         resultadoContainerTres.innerHTML = `$${resultadoTres}`
-    }
-}
-const containerDivisaDolar = document.getElementById('containerDivisaDolar');
 function seleccionDivisaDolar(moneda){
     const {nombreMoneda, precioMonedaDolar} = moneda;
 
@@ -111,6 +102,7 @@ function renderDivisaDolar(id){
     console.log(resultDivisaDolar)
     containerDivisaDolar.innerHTML = seleccionDivisaDolar(resultDivisaDolar)
 }
+
 //Hago una funcion que sirve para hacer los calculos
 function calcularDivisaDolar(precioMonedaDolar){
     let montoIngresadoDolar = document.getElementById("montoDolar");
@@ -122,25 +114,7 @@ function calcularDivisaDolar(precioMonedaDolar){
     resultContainerDolar.innerHTML = `$${resultDolar}`
 }
 
-
-
-// Arranco con la parte de las criptos
-
-//-----------------------------------------------------------------------------------------------------------------------------------------------------
-
-//Array con las criptos
-const cripto = [
-{nombreCripto:"Bitcoin",precioCripto:16582.8, id:"bitcoin"},
-{nombreCripto:"Ethereum",precioCripto:1204.25, id:"ethereum"},
-{nombreCripto:"Usdc",precioCripto:1, id:"usdc"},
-{nombreCripto:"Litecoin",precioCripto:0.01,id:"litecoin"},
-{nombreCripto:"Dai",precioCripto:1, id:"dai"},
-{nombreCripto:"Uniswap",precioCripto:5.79,id:"uniswap"},
-{nombreCripto:"Axs",precioCripto:7.03,id:"axs"},
-{nombreCripto:"Xrp",precioCripto:0.38,id:"xrp"}
-]
 //Selecciono el div vacio con getElementById y luego hago una funcion que muestre en el html lo que necesito
-const containerCripto = document.getElementById("containerCripto");
 function seleccionCripto(cripto){
     const {nombreCripto, precioCripto} = cripto;
     
@@ -160,7 +134,7 @@ function renderCripto(id){
     console.log(resultCripto)
     containerCripto.innerHTML = seleccionCripto(resultCripto)
 }
-//Hago una funcion que sirve para hacer los calculos
+
 function calcularCripto(precioCripto){
     let montoIngresadoCripto = document.getElementById("montoCripto");
     let resultContainerCripto = document.getElementById("resultadoCripto");
@@ -171,17 +145,7 @@ function calcularCripto(precioCripto){
 
     resultContainerCripto.innerHTML = `$${resultCripto}`
 }
-//Guardando las monedas en el local storage
-const monedaString = JSON.stringify(moneda);
-localStorage.setItem('Moneda',monedaString);
-let monedaStorage = JSON.parse(localStorage.getItem('moneda'));
 
-//Guardando las criptos en el local storage
-const criptoString = JSON.stringify(cripto);
-localStorage.setItem('Cripto',criptoString);
-let criptoStorage = JSON.parse(localStorage.getItem('cripto'));
-
-const containerConversionesMultiplesBitcoin = document.getElementById('containerConversionesMultiplesBitcoin');
 function conversionesMultiplesBitcoin(){
    
     return `<div>
@@ -205,27 +169,28 @@ function conversionesMultiplesBitcoin(){
                 </div>
     `
 }
+
 function renderConversionesMultiplesBitcoin(){
     containerConversionesMultiplesBitcoin.innerHTML = conversionesMultiplesBitcoin()
 }
-for(let i=0; i<=3; i=i+1){
-    function calcularMultiplesBitcoin(){
-        let precioBitcoin = 16582.8;
-        let montoIngresadoBitcoinUno = document.getElementById('montoBitcoinUno');
-        let montoIngresadoBitcoinDos = document.getElementById('montoBitcoinDos');
-        let montoIngresadoBitcoinTres = document.getElementById('montoBitcoinTres');
 
-        let resultadoContainerBitcoinUno = document.getElementById('resultadoBitcoinUno');
-        let resultadoContainerBitcoinDos = document.getElementById('resultadoBitcoinDos');
-        let resultadoContainerBitcoinTres = document.getElementById('resultadoBitcoinTres');
+const containerCripto = document.getElementById("containerCripto");
+const containerDivisa = document.getElementById('containerDivisa');
+const containerDivisaDolar = document.getElementById('containerDivisaDolar');
+const containerConversionesMultiples = document.getElementById('containerConversionesMultiples');
+const containerConversionesMultiplesBitcoin = document.getElementById('containerConversionesMultiplesBitcoin');
 
-         let resultadoBitcoinUno = montoIngresadoBitcoinUno.value * precioBitcoin;
-         let resultadoBitcoinDos = montoIngresadoBitcoinDos.value * precioBitcoin;
-         let resultadoBitcoinTres = montoIngresadoBitcoinTres.value * precioBitcoin;
 
-         resultadoContainerBitcoinUno.innerHTML = `$${resultadoBitcoinUno}`
-         resultadoContainerBitcoinDos.innerHTML = `$${resultadoBitcoinDos}`
-         resultadoContainerBitcoinTres.innerHTML = `$${resultadoBitcoinTres}`
-    }
-}
+//Guardando las monedas en el local storage
+// const monedaString = JSON.stringify(moneda);
+// localStorage.setItem('Moneda',monedaString);
+// let monedaStorage = JSON.parse(localStorage.getItem('moneda'));
+
+// //Guardando las criptos en el local storage
+// const criptoString = JSON.stringify(cripto);
+// localStorage.setItem('Cripto',criptoString);
+// let criptoStorage = JSON.parse(localStorage.getItem('cripto'));
+
+
+
 
