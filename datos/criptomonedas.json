@@ -1,0 +1,10 @@
+[
+    {"nombreCripto":"Bitcoin","precioCripto":16582.8, "id":"bitcoin"},
+    {"nombreCripto":"Ethereum","precioCripto":1204.25, "id":"ethereum"},
+    {"nombreCripto":"Usdc","precioCripto":1, "id":"usdc"},
+    {"nombreCripto":"Litecoin","precioCripto":0.01,"id":"litecoin"},
+    {"nombreCripto":"Dai","precioCripto":1, "id":"dai"},
+    {"nombreCripto":"Uniswap","precioCripto":5.79,"id":"uniswap"},
+    {"nombreCripto":"Axs","precioCripto":7.03,"id":"axs"},
+    {"nombreCripto":"Xrp","precioCripto":0.38,"id":"xrp"}
+]
