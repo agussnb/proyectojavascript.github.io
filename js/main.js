@@ -1,78 +1,49 @@
 //Arranco de cero para mejorar todo el codigo
 //Array de monedas
-//IMPORTANTE AGUSTIN DEL FUTURO, DEJO ESTO COMENTADO PARA QUE MAÑANA HAGAS ESTO QUE SE TE OCURRIO HOY PERO BIEN, YA QUE HOY NO ME DA EL TIEMPO ASI QUE QUEDA COMENTADO ASI ME ACUERDO COMO ES LA COSA, SUERTE.
-// const render = ()=>{
-//     `<div>
-//                     <h3 class="h3NombreMoneda">${nombreMoneda + moneda.simbolo}</h3>
-//                     <p>El precio es de pesos Argentinos: $${precioMoneda}</p>
-//                     <input type="text" id="monto"><strong>¿Cuanto deseas convertir?</strong></input>
-//                     <button onclick="calcularDivisa(${precioMoneda})">Calcular</button>
-//                     <p>El total es de pesos Argentinos: </p>
-//                     <p id="resultado"></p>
-//                 </div>
-//     `
-// }
 
-// const obtenerDatosMoneda = () =>{
-//     fetch('/datos/monedas.json')
-//     .then((respuesta)=>{
-//         return respuesta.json
-//     })
-//     .then((datos)=>{
-//         render(datos)
-//     })
-//     .catch((error)=>{
-//         console.log(error)
-//     })
-// }
+const render = (monedas)=>{
+    const contenidoDivisa = document.querySelector("#containerDivisa");
 
-// const moneda =[  
-//     {simbolo:"$", nombreMoneda:"Dolar", precioMoneda: 291, id:"dolar",precioMonedaDolar: 1},
-//     {simbolo:"€", nombreMoneda:"Euro",precioMoneda:295, id:"euro",precioMonedaDolar: 1.04},
-//     {simbolo:"¥", nombreMoneda:"Yen",precioMoneda:1.17, id:"yen",precioMonedaDolar: 0.072},
-//     {simbolo:"¥", nombreMoneda:"Yuan",precioMoneda:22.91, id:"yuan",precioMonedaDolar: 0.14},
-//     {simbolo:"₽", nombreMoneda:"Rublo",precioMoneda:2.69, id:"rublo",precioMonedaDolar: 0.016},
-//     {simbolo:"$", nombreMoneda:"PesoArg",precioMoneda:1, id:"pesoArg",precioMonedaDolar:0.0060},
-//     {simbolo:"$", nombreMoneda:"PesoChl",precioMoneda:0.18, id:"pesoChl",precioMonedaDolar: 0.0011},
-//     {simbolo:"$", nombreMoneda:"PesoMex",precioMoneda:8.39, id:"pesoMex",precioMonedaDolar: 0.052}];
+   
+     let html = "";
+     
+     monedas.forEach(moneda=> {
+        const {simbolo, nombreMoneda, precioMoneda, id, precioMonedaDolar} = moneda
 
-//Array de criptos
-const cripto = [
-    {nombreCripto:"Bitcoin",precioCripto:16582.8, id:"bitcoin"},
-    {nombreCripto:"Ethereum",precioCripto:1204.25, id:"ethereum"},
-    {nombreCripto:"Usdc",precioCripto:1, id:"usdc"},
-    {nombreCripto:"Litecoin",precioCripto:0.01,id:"litecoin"},
-    {nombreCripto:"Dai",precioCripto:1, id:"dai"},
-    {nombreCripto:"Uniswap",precioCripto:5.79,id:"uniswap"},
-    {nombreCripto:"Axs",precioCripto:7.03,id:"axs"},
-    {nombreCripto:"Xrp",precioCripto:0.38,id:"xrp"}
-]
-
-function seleccionDivisa(moneda){
-    const {nombreMoneda, precioMoneda} = moneda;
-
-    return `<div>
-                    <h3 class="h3NombreMoneda">${nombreMoneda + moneda.simbolo}</h3>
-                    <p>El precio es de pesos Argentinos: $${precioMoneda}</p>
-                    <input type="text" id="monto"><strong>¿Cuanto deseas convertir?</strong></input>
-                    <button onclick="calcularDivisa(${precioMoneda})">Calcular</button>
-                    <p>El total es de pesos Argentinos: </p>
-                    <p id="resultado"></p>
-                </div>
-    `
+        html += `
+        <div>
+            <h3 class="h3NombreMoneda">${nombreMoneda + simbolo}</h3>
+            <p>El precio es de pesos Argentinos: $${precioMoneda}</p>
+            <input type="text" id="monto"><strong>¿Cuanto deseas convertir?</strong></input>
+            <button onclick="calcularDivisa(${precioMoneda})">Calcular</button>
+            <p>El total es de pesos Argentinos: </p>
+    
+            <p id="resultado"></p>
+        </div>
+        `
+     });
+   contenidoDivisa.innerHTML = html
+}
+/*function buscarDivisa(id){
+    let resultDivisa = monedas.find(divisa => divisa.id == id);
+    containerDivisa.innerHTML = render(resultDivisa);
+}*/
+const obtenerDatosArray = ()=>{
+    fetch('/datos/monedas.json')
+    .then((respuesta)=>{
+        return respuesta.json()
+    })
+    .then((datos)=>{
+        render(datos)
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
 }
 
-//Hago una funcion que me busque el find de la divisa requerida
-function renderDivisa(id){
-    let resultDivisa =moneda.find(divisa => divisa.id == id)
-    console.log(resultDivisa)
-    containerDivisa.innerHTML = seleccionDivisa(resultDivisa)
-}
-
-//Hago una funcion que calcule la conversion
 function calcularDivisa(precioMoneda){
-    let montoIngresado = document.getElementById("monto");
-    let resultContainer = document.getElementById("resultado");
+    let montoIngresado = document.querySelector('#monto');
+    let resultContainer = document.querySelector('#resultado');
 
     let result = montoIngresado.value * precioMoneda;
     console.log(montoIngresado.value);
@@ -80,6 +51,8 @@ function calcularDivisa(precioMoneda){
 
     resultContainer.innerHTML = `$${result}`
 }
+const btnArray = document.querySelector('#btnArray');
+btnArray.addEventListener('click', obtenerDatosArray)
 
 function conversionesMultiples(){
    
@@ -260,7 +233,4 @@ const containerDivisaDolar = document.getElementById('containerDivisaDolar');
 // const criptoString = JSON.stringify(cripto);
 // localStorage.setItem('Cripto',criptoString);
 // let criptoStorage = JSON.parse(localStorage.getItem('cripto'));
-
-
-
 
