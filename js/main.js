@@ -1,5 +1,8 @@
 //Arranco de cero para mejorar todo el codigo
 //Array de monedas
+
+
+
 const moneda =[  
     {simbolo:"$", nombreMoneda:"Dolar", precioMoneda: 291, id:"dolar",precioMonedaDolar: 1},
     {simbolo:"€", nombreMoneda:"Euro",precioMoneda:295, id:"euro",precioMonedaDolar: 1.04},
@@ -26,7 +29,7 @@ const seleccionDivisa = (moneda)=>{
     return `<div>
                     <h3 class="h3NombreMoneda">${nombreMoneda + simbolo}</h3>
                     <p>El precio es de: $${precioMoneda}</p>
-                    <input type="text" id="monto"><strong>¿Cuanto deseas convertir?</strong></input>
+                    <input type="number" id="monto"><strong>¿Cuanto deseas convertir?</strong></input>
                     <button onclick="calcularDivisa(${precioMoneda})">Calcular</button>
                     <p>El total es de pesos: </p>
                     <p id="resultado"></p>
@@ -39,8 +42,7 @@ function calcularDivisa(precioMoneda){
     let montoIngresado = document.getElementById("monto");
     let resultContainer = document.getElementById("resultado");
     let result = montoIngresado.value * precioMoneda;
-
-    resultContainer.innerHTML = `$${result}`
+    resultContainer.innerHTML = `${swal.fire('Resultado','El resultado es','success')+{result}}` //Esto sale como [object Object][object Object] asi que mañana tengo que ver como arreglarlo, y como recordatorio, tenes que agregar asincronia y alguna api externa
 }
 function buscarDivisa(id){
     let resultDivisa = moneda.find(divisa => divisa.id == id);
@@ -214,8 +216,17 @@ const containerCripto = document.getElementById("containerCripto");
 const containerDivisa = document.getElementById('containerDivisa');
 const containerDivisaDolar = document.getElementById('containerDivisaDolar');
 
-
-
+/*const btnAlerta = document.querySelector("#btnSweetAlert");
+function alerta(){
+    Swal.fire(
+        'Alert fachero',
+        'Hola soy como el alert pero mas fachero',
+        'success'
+    )
+}
+btnAlerta.addEventListener('click',alerta)
+PRUEBA DE SWEET ALERT 2
+*/
 
 //Guardando las monedas en el local storage
 // const monedaString = JSON.stringify(moneda);
