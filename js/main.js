@@ -119,6 +119,12 @@ const seleccionDivisa = (moneda) => {
                 </div>
     `
 }
+const containerDivisa = document.getElementById('containerDivisa');
+function buscarDivisa(id) {
+    let resultDivisa = moneda.find(divisa => divisa.id == id);
+    containerDivisa.innerHTML = seleccionDivisa(resultDivisa);
+}
+
 
 //Hago una funcion que sirve para hacer los calculos
 function calcularDivisa(precioMoneda) {
@@ -127,21 +133,15 @@ function calcularDivisa(precioMoneda) {
     let result = montoIngresado.value * precioMoneda;
     resultContainer.innerHTML = `$${result}`
     const btnCalcularDivisa = document.querySelector('#btnCalcularDivisa');
-    btnCalcularDivisa.addEventListener('click', swal.fire('Resultado', 'El resultado es: ' + (result), 'success', 2000))
-    if (montoIngresado.value == 0) {
-        swal.fire('Error', 'No ingresaste ningun numero, por lo tanto no se realizo ningun calculo', 'error', 2000)
+    btnCalcularDivisa.addEventListener('click', swal.fire('Resultado', 'El resultado es de pesos argentinos: ' + (result), 'success', 2000))
+    if (montoIngresado.value == 0 || NaN) {
+        swal.fire('Error', 'No se puede realizar la conversion de un numero igual o menor a 0, por favor intenta con otro numero', 'error', 2000)
         resultContainer.innerHTML = ``
     }
 
 
     // como recordatorio, tenes que agregar asincronia y alguna api externa
 }
-
-function buscarDivisa(id) {
-    let resultDivisa = moneda.find(divisa => divisa.id == id);
-    containerDivisa.innerHTML = seleccionDivisa(resultDivisa);
-}
-
 function conversionesMultiples() {
 
     return `<div>
@@ -211,8 +211,11 @@ function seleccionDivisaDolar(moneda) {
 }
 //Hago una funcion que me busque el find de la divisa requerida
 function renderDivisaDolar(id) {
+    const containerDivisaDolar = document.getElementById('containerDivisaDolar');
+
     let resultDivisaDolar = moneda.find(divisa => divisa.id == id)
     containerDivisaDolar.innerHTML = seleccionDivisaDolar(resultDivisaDolar)
+    
 }
 
 //Hago una funcion que sirve para hacer los calculos
@@ -221,15 +224,14 @@ function calcularDivisaDolar(precioMonedaDolar) {
     let resultContainerDolar = document.getElementById("resultadoDolar");
     let resultDolar = montoIngresadoDolar.value * precioMonedaDolar;
     resultContainerDolar.innerHTML = `$${resultDolar}`
+  
+    const btnCalcularDivisaDolar = document.querySelector('#btnCalcularDivisaDolar')
+    btnCalcularDivisaDolar.addEventListener('click', swal.fire('Resultado', 'El resultado es dolares: ' + (resultDolar), 'success', 2000) )
+    if (montoIngresadoDolar.value == 0 || NaN ) {
+        swal.fire('Error', 'No se puede realizar la conversion de un numero igual o menor a 0, por favor intenta con otro numero', 'error', 2000)
+        resultContainerDolar.innerHTML = ``
+    }
 }
-const btnCalcularDivisaDolar = document.querySelector('#btnCalcularDivisaDolar');
-btnCalcularDivisaDolar.addEventListener('click', swal.fire('Resultado', 'El resultado es: ' + (resultDolar), 'success', 2000))
-/*
-
-if (montoIngresadoDolar.value == 0) {
-    swal.fire('Error', 'No ingresaste ningun numero, por lo tanto no se realizo ningun calculo', 'error', 2000)
-    resultContainerDolar.innerHTML = ``
-}*/
 
 //Selecciono el div vacio con getElementById y luego hago una funcion que muestre en el html lo que necesito
 function seleccionCripto(cripto) {
@@ -253,6 +255,7 @@ const containerConversionesMultiplesBitcoin = document.getElementById('container
 
 function renderCripto(id) {
     let resultCripto = cripto.find(cripto => cripto.id == id)
+    const containerCripto = document.getElementById("containerCripto");
     console.log(resultCripto)
     containerCripto.innerHTML = seleccionCripto(resultCripto)
 }
@@ -318,9 +321,8 @@ for (let i = 0; i <= 3; i = i + 1) {
 }
 
 
-const containerCripto = document.getElementById("containerCripto");
-const containerDivisa = document.getElementById('containerDivisa');
-const containerDivisaDolar = document.getElementById('containerDivisaDolar');
+
+
 
 /*const btnAlerta = document.querySelector("#btnSweetAlert");
 function alerta(){
