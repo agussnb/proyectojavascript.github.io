@@ -1,7 +1,58 @@
 //Arranco de cero para mejorar todo el codigo
 //Array de monedas
 
+async function cargarDatos(){
+    const urlAPI = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json'
+    const res = await fetch(urlAPI);
+    const datos = await res.json();
+    return datos
 
+}
+
+async function APILeida(){
+    const monedaAPI = await cargarDatos();
+    console.log(monedaAPI);
+    const divAPI = document.querySelector('#divAPI');
+    divAPI.innerHTML =  `
+    <p class='parrafoIndexDivisas'>
+    Las divisas que en esta pagina podras convertir a pesos argentinos o dolares, son,:</p>
+    <ul>
+        <li><strong>${monedaAPI.usd}</strong> (Dolar Estadounidense) <img class='banderas' src='/imagenes/bandera-usa.jpg'></img>
+        <br>
+        <br>
+        </li>
+        <li><strong>${monedaAPI.eur}</strong> (Euro) <img class='banderas' src='/imagenes/bandera-europa.png'></img>
+        <br>
+        <br>
+        </li>
+        <li><strong>${monedaAPI.jpy}</strong> (Yen japones) <img class='banderas' src='/imagenes/bandera-japon.png'></img>
+        <br>
+        <br>
+        </li>
+        <li><strong>${monedaAPI.cny}</strong> (Yuan chino) <img class='banderas' src='/imagenes/bandera-china.png'></img>
+        <br>
+        <br>
+        </li>
+        <li><strong>${monedaAPI.rub}</strong> (Rublo ruso) <img class='banderas' src='/imagenes/bandera-rusia.png'></img>
+        <br>
+        <br>
+        </li>
+        <li><strong>${monedaAPI.ars}</strong> (Peso argentino) <img class='banderas' src='/imagenes/bandera-argentina.png'></img>
+        <br>
+        <br>
+        </li>
+        <li><strong>${monedaAPI.clp}</strong> (Peso chileno) <img class='banderas' src='/imagenes/bandera-chile.png'></img>
+        <br>
+        <br>
+        </li>
+        <li><strong>${monedaAPI.mxn}</strong> (Peso mexicano) <img class='banderas' src='/imagenes/bandera-mexico.png'></img>
+        <br>
+        <br>
+        </li>
+    </ul>`
+}
+//+monedaAPI.eur+monedaAPI.jpy+monedaAPI.cny+monedaAPI.rub+monedaAPI.ars+monedaAPI.clp+monedaAPI.mxn
+APILeida()
 
 const moneda = [{
         simbolo: "$",
@@ -120,27 +171,26 @@ const seleccionDivisa = (moneda) => {
     `
 }
 const containerDivisa = document.getElementById('containerDivisa');
-function buscarDivisa(id) {
+    function buscarDivisa(id) {
     let resultDivisa = moneda.find(divisa => divisa.id == id);
-    containerDivisa.innerHTML = seleccionDivisa(resultDivisa);
+    containerDivisa.innerHTML =  seleccionDivisa(resultDivisa);
 }
 
-
 //Hago una funcion que sirve para hacer los calculos
-function calcularDivisa(precioMoneda) {
+ function calcularDivisa(precioMoneda) {
     let montoIngresado = document.getElementById("monto");
     let resultContainer = document.getElementById("resultado");
     let result = montoIngresado.value * precioMoneda;
     resultContainer.innerHTML = `$${result}`
     const btnCalcularDivisa = document.querySelector('#btnCalcularDivisa');
     btnCalcularDivisa.addEventListener('click', swal.fire('Resultado', 'El resultado es de pesos argentinos: ' + (result), 'success', 2000))
-    if (montoIngresado.value == 0 || NaN) {
+    if (montoIngresado.value <= 0 || NaN) {
         swal.fire('Error', 'No se puede realizar la conversion de un numero igual o menor a 0, por favor intenta con otro numero', 'error', 2000)
         resultContainer.innerHTML = ``
     }
+ 
 
 
-    // como recordatorio, tenes que agregar asincronia y alguna api externa
 }
 function conversionesMultiples() {
 
@@ -157,7 +207,7 @@ function conversionesMultiples() {
                     </tr>
                     <br>
                     </table>
-                    <button onclick="calcularMultiples()">Calcular</button>
+                    <button id="btnCalculoMultipleCripto" onclick="calcularMultiples()">Calcular</button>
                     <p>El total es de pesos Argentinos: </p>
                     <p id="resultadoUno"></p>
                     <p id="resultadoDos"></p>
@@ -227,7 +277,7 @@ function calcularDivisaDolar(precioMonedaDolar) {
   
     const btnCalcularDivisaDolar = document.querySelector('#btnCalcularDivisaDolar')
     btnCalcularDivisaDolar.addEventListener('click', swal.fire('Resultado', 'El resultado es dolares: ' + (resultDolar), 'success', 2000) )
-    if (montoIngresadoDolar.value == 0 || NaN ) {
+    if (montoIngresadoDolar.value <= 0 || NaN ) {
         swal.fire('Error', 'No se puede realizar la conversion de un numero igual o menor a 0, por favor intenta con otro numero', 'error', 2000)
         resultContainerDolar.innerHTML = ``
     }
@@ -243,8 +293,8 @@ function seleccionCripto(cripto) {
     return `<div>
                          <h3 class="h3NombreCripto">${nombreCripto}</h3>
                          <p>El precio es de dolares: $${precioCripto}</p>
-                         <input type="text" id="montoCripto">¿Cuanto deseas convertir?</input>
-                         <button onclick="calcularCripto(${precioCripto})">Calcular</button>
+                         <input type="number" id="montoCripto">¿Cuanto deseas convertir?</input>
+                         <button id="btnCalcularCripto" onclick="calcularCripto(${precioCripto})">Calcular</button>
                          <p>El total es de dolares: </p>
                          <p id="resultadoCripto"></p>
                 </div>
@@ -263,13 +313,18 @@ function renderCripto(id) {
 function calcularCripto(precioCripto) {
     let montoIngresadoCripto = document.getElementById("montoCripto");
     let resultContainerCripto = document.getElementById("resultadoCripto");
-
     let resultCripto = montoIngresadoCripto.value * precioCripto;
-    console.log(montoIngresadoCripto.value);
-    console.log(resultCripto)
-
     resultContainerCripto.innerHTML = `$${resultCripto}`
+
+    const btnCalcularCripto = document.querySelector('#btnCalcularCripto');
+    btnCalcularCripto.addEventListener('click', swal.fire('Resultado', 'El resultado es de dolares: ' + (resultCripto), 'success', 2000))
+if (montoIngresadoCripto.value <= 0 || NaN) {
+    swal.fire('Error', 'No se puede realizar la conversion de un numero igual o menor a 0, por favor intenta con otro numero', 'error', 2000)
+    resultContainerCripto.innerHTML = ``
 }
+}
+
+
 
 function conversionesMultiplesBitcoin() {
 
@@ -323,6 +378,18 @@ for (let i = 0; i <= 3; i = i + 1) {
 
 
 
+
+
+
+// const urlAPI = 'http://economia.awesomeapi.com.br/json/last/USD-ARS,USD-EUR,USD-JPY,USD-CNY,USD-RUB,USD-CLP,USD-MXN'
+//     fetch(urlAPI)
+//     .then(respuesta => respuesta.json())
+//     .then(datos =>{
+//        console.log(datos)
+//    })
+//    .catch(err =>{
+//        console.log(err)
+//    })
 
 /*const btnAlerta = document.querySelector("#btnSweetAlert");
 function alerta(){
