@@ -91,12 +91,12 @@ h3 {
 }
 
 .btn {
-    background-color: rgb(38, 189, 231);
+    background-color: rgb(170, 31, 31);
     font-family: 'Raleway';
 }
 
 .btn:hover {
-    background-color: rgb(38, 186, 231);
+    background-color: rgb(241, 68, 68);
 }
 
 footer {

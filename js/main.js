@@ -1,4 +1,5 @@
-//Arranco de cero para mejorar todo el codigo
+//   ---------------   Alumno:/Agustin Barrero/Comision:/45200 ----------------------------
+//------------------------------
 //Array de monedas
 
 async function cargarDatos(){
@@ -11,17 +12,16 @@ async function cargarDatos(){
 
 async function APILeida(){
     const monedaAPI = await cargarDatos();
-    console.log(monedaAPI);
     const divAPI = document.querySelector('#divAPI');
     divAPI.innerHTML =  `
     <p class='parrafoIndexDivisas'>
-    Las divisas que en esta pagina podras convertir a pesos argentinos o dolares, son,:</p>
+    Estas son, las divisias disponibles para convertir a pesos argentinos, o dolares,:</p>
     <ul>
         <li><strong>${monedaAPI.usd}</strong> (Dolar Estadounidense) <img class='banderas' src='/imagenes/bandera-usa.jpg'></img>
         <br>
         <br>
         </li>
-        <li><strong>${monedaAPI.eur}</strong> (Euro) <img class='banderas' src='/imagenes/bandera-europa.png'></img>
+        <li><strong>${monedaAPI.eur}</strong> (Europa) <img class='banderas' src='/imagenes/bandera-europa.png'></img>
         <br>
         <br>
         </li>
@@ -51,7 +51,6 @@ async function APILeida(){
         </li>
     </ul>`
 }
-//+monedaAPI.eur+monedaAPI.jpy+monedaAPI.cny+monedaAPI.rub+monedaAPI.ars+monedaAPI.clp+monedaAPI.mxn
 APILeida()
 
 const moneda = [{
@@ -306,7 +305,6 @@ const containerConversionesMultiplesBitcoin = document.getElementById('container
 function renderCripto(id) {
     let resultCripto = cripto.find(cripto => cripto.id == id)
     const containerCripto = document.getElementById("containerCripto");
-    console.log(resultCripto)
     containerCripto.innerHTML = seleccionCripto(resultCripto)
 }
 
@@ -356,59 +354,37 @@ function renderConversionesMultiplesBitcoin() {
 
 for (let i = 0; i <= 3; i = i + 1) {
     function calcularMultiplesBitcoin() {
-        let precioBitcoin = 16582.8;
+       const precioBitcoin = 16582.8;   
+       const precioEthereum =  1204.25;
+       const precioLitecoin = 0.01
         let montoIngresadoBitcoinUno = document.getElementById('montoBitcoinUno');
-        let montoIngresadoBitcoinDos = document.getElementById('montoBitcoinDos');
-        let montoIngresadoBitcoinTres = document.getElementById('montoBitcoinTres');
+        let montoIngresadoEthereum = document.getElementById('montoBitcoinDos');
+        let montoIngresadoLitecoin = document.getElementById('montoBitcoinTres');
 
         let resultadoContainerBitcoinUno = document.getElementById('resultadoBitcoinUno');
-        let resultadoContainerBitcoinDos = document.getElementById('resultadoBitcoinDos');
-        let resultadoContainerBitcoinTres = document.getElementById('resultadoBitcoinTres');
+        let resultadoContainerEthereum = document.getElementById('resultadoBitcoinDos');
+        let resultadoContainerLitecoin = document.getElementById('resultadoBitcoinTres');
 
         let resultadoBitcoinUno = montoIngresadoBitcoinUno.value * precioBitcoin;
-        let resultadoBitcoinDos = montoIngresadoBitcoinDos.value * precioBitcoin;
-        let resultadoBitcoinTres = montoIngresadoBitcoinTres.value * precioBitcoin;
+        let resultadoEthereum = montoIngresadoEthereum.value * precioEthereum;
+        let resultadoLitecoin = montoIngresadoLitecoin.value * precioLitecoin;
 
         resultadoContainerBitcoinUno.innerHTML = `$${resultadoBitcoinUno}`
-        resultadoContainerBitcoinDos.innerHTML = `$${resultadoBitcoinDos}`
-        resultadoContainerBitcoinTres.innerHTML = `$${resultadoBitcoinTres}`
+        resultadoContainerEthereum.innerHTML = `$${resultadoEthereum}`
+        resultadoContainerLitecoin.innerHTML = `$${resultadoLitecoin}`
     }
 }
 
 
 
 
-
-
-
-// const urlAPI = 'http://economia.awesomeapi.com.br/json/last/USD-ARS,USD-EUR,USD-JPY,USD-CNY,USD-RUB,USD-CLP,USD-MXN'
-//     fetch(urlAPI)
-//     .then(respuesta => respuesta.json())
-//     .then(datos =>{
-//        console.log(datos)
-//    })
-//    .catch(err =>{
-//        console.log(err)
-//    })
-
-/*const btnAlerta = document.querySelector("#btnSweetAlert");
-function alerta(){
-    Swal.fire(
-        'Alert fachero',
-        'Hola soy como el alert pero mas fachero',
-        'success'
-    )
-}
-btnAlerta.addEventListener('click',alerta)
-PRUEBA DE SWEET ALERT 2
-*/
-
 //Guardando las monedas en el local storage
-// const monedaString = JSON.stringify(moneda);
-// localStorage.setItem('Moneda',monedaString);
-// let monedaStorage = JSON.parse(localStorage.getItem('moneda'));
 
-// //Guardando las criptos en el local storage
-// const criptoString = JSON.stringify(cripto);
-// localStorage.setItem('Cripto',criptoString);
-// let criptoStorage = JSON.parse(localStorage.getItem('cripto'));
+const monedaString = JSON.stringify(moneda);
+localStorage.setItem('Moneda',monedaString);
+let monedaStorage = JSON.parse(localStorage.getItem('moneda'));
+
+//Guardando las criptos en el local storage
+const criptoString = JSON.stringify(cripto);
+localStorage.setItem('Cripto',criptoString);
+let criptoStorage = JSON.parse(localStorage.getItem('cripto'));
